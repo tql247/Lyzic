@@ -1,0 +1,9 @@
+@model Lyzic.Models.ProductModel
+@{
+    var product = ViewData["product"] as ProductModel;
+}
+<div>
+    @product.Name
+    <br>
+    @product.Price
+</div>
