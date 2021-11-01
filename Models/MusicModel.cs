@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Lyzic.Models
 {
-    public class MusicModel
+    public class Music
     {
         [Key]
         [Required]
         public int ID {get; set; }
 
+        [Required]
         public string Name {get; set; }
 
         public string Author {get; set; }
@@ -19,6 +20,8 @@ namespace Lyzic.Models
         public string Singers {get; set; }
 
         public string Lyric {get; set; }
+
+        public string MediaImageCoverURI {get; set; }
 
         public string MediaContentURI {get; set; }
 

@@ -3,6 +3,7 @@ using System.Linq;
 using Lyzic.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Lyzic.Repositories;
 
 namespace Lyzic.Controllers
 {
@@ -18,6 +19,13 @@ namespace Lyzic.Controllers
         
 
         public IActionResult Index()
+        {
+            var listMusic = MusicRes.GetAll();
+            return View(listMusic);
+        }
+        
+        // GET: MusicController/Create
+        public ActionResult Create()
         {
             return View();
         }

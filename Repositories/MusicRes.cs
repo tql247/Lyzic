@@ -7,53 +7,55 @@ using System.Threading.Tasks;
 using Lyzic.Const;
 using Lyzic.Models;
 
-namespace T3_51703124.Repository
+namespace Lyzic.Repositories
 {
-    public class LaptopRes
+    public class MusicRes
     {
-        // public static List<Laptop> GetAll()
-        // {
-        //     object[] value = { };
-        //     SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
-        //     DataTable result = connection.Select("Laptop_GetAll", value);
+        public static List<Music> GetAll()
+        {
+            object[] value = { };
+            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
+            DataTable result = connection.Select("Music_GetAll", value);
             
-        //     List<Laptop> lstResult = new List<Laptop>();
-        //     if (connection.errorCode == 0 && result.Rows.Count > 0)
-        //     {
-        //         foreach (DataRow dr in result.Rows)
-        //         {
-        //             Laptop lap = new Laptop();
-        //             lap.ID = dr["ID"].ToString();
-        //             lap.Name = dr["Name"].ToString();
-        //             lap.Price = string.IsNullOrEmpty(dr["Price"].ToString()) ? 0 : int.Parse(dr["Price"].ToString());
-        //             lap.RAM = string.IsNullOrEmpty(dr["RAM"].ToString()) ? 0 : int.Parse(dr["RAM"].ToString());
-        //             lap.Storage = string.IsNullOrEmpty(dr["Storage"].ToString()) ? 0 : int.Parse(dr["Storage"].ToString());
-        //             lap.CPU = dr["CPU"].ToString();
+            List<Music> lstResult = new List<Music>();
+            if (connection.errorCode == 0 && result.Rows.Count > 0)
+            {
+                foreach (DataRow dr in result.Rows)
+                {
+                    Music music = new Music();
 
-        //             lstResult.Add(lap);
-        //         }
-        //     }
+                    music.ID = string.IsNullOrEmpty(dr["ID"].ToString()) ? 0 : int.Parse(dr["ID"].ToString());
+                    music.Name = dr["Name"].ToString();
+                    music.Author = dr["Author"].ToString();
+                    music.Singers = dr["Singers"].ToString();
+                    music.CreatedDate = string.IsNullOrEmpty(dr["CreatedDate"].ToString()) ? default : DateTime.Parse(dr["CreatedDate"].ToString());
 
-        //     return lstResult;
-        // }
+                    lstResult.Add(music);
+                }
+            }
+
+            return lstResult;
+        }
         // /*
          
         //  */
-        // public static bool Insert(Laptop lap)
-        // {
-        //     object[] value =
-        //     {
-        //         lap.ID, lap.Name, lap.Price, lap.RAM, lap.CPU, lap.Storage
-        //     };
+        public static bool Insert(Music music)
+        {
+            Console.WriteLine(music);
+            // object[] value =
+            // {
+            //     music.ID, music.Name, music.Price, music.RAM, music.CPU, music.Storage
+            // };
 
-        //     SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
-        //     DataTable result = connection.Select("Laptop_Insert ", value);
-        //     if (connection.errorCode == 0 && connection.errorMessage == "")
-        //         return true;
-        //     return false;
-        // }
+            // SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
+            // DataTable result = connection.Select("Music_Insert ", value);
+            // if (connection.errorCode == 0 && connection.errorMessage == "")
+            //     return true;
+            // return false;
+            return false;
+        }
 
-        // public static Laptop Detail(string id)
+        // public static Music Detail(string id)
         // {
         //     object[] value =
         //     {
@@ -61,46 +63,46 @@ namespace T3_51703124.Repository
         //     };
 
         //     SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
-        //     DataTable result = connection.Select("Laptop_Detail ", value);
-        //     Laptop lap = new Laptop();
+        //     DataTable result = connection.Select("Music_Detail ", value);
+        //     Music music = new Music();
 
         //     if (connection.errorCode == 0 && result.Rows.Count > 0)
         //     {
         //         var dr = result.Rows[0];
-        //         lap.ID = dr["ID"].ToString();
-        //         lap.Name = dr["Name"].ToString();
-        //         lap.Price = string.IsNullOrEmpty(dr["Price"].ToString()) ? 0 : int.Parse(dr["Price"].ToString());
-        //         lap.RAM = string.IsNullOrEmpty(dr["RAM"].ToString()) ? 0 : int.Parse(dr["RAM"].ToString());
-        //         lap.Storage = string.IsNullOrEmpty(dr["Storage"].ToString()) ? 0 : int.Parse(dr["Storage"].ToString());
-        //         lap.CPU = dr["CPU"].ToString();
+        //         music.ID = dr["ID"].ToString();
+        //         music.Name = dr["Name"].ToString();
+        //         music.Price = string.IsNullOrEmpty(dr["Price"].ToString()) ? 0 : int.Parse(dr["Price"].ToString());
+        //         music.RAM = string.IsNullOrEmpty(dr["RAM"].ToString()) ? 0 : int.Parse(dr["RAM"].ToString());
+        //         music.Storage = string.IsNullOrEmpty(dr["Storage"].ToString()) ? 0 : int.Parse(dr["Storage"].ToString());
+        //         music.CPU = dr["CPU"].ToString();
         //     }
 
-        //     return lap;
+        //     return music;
         // }
 
-        // public static bool Update(Laptop lap)
+        // public static bool Update(Music music)
         // {
         //     object[] value =
         //     {
-        //         lap.ID, lap.Name, lap.Price, lap.RAM, lap.CPU, lap.Storage
+        //         music.ID, music.Name, music.Price, music.RAM, music.CPU, music.Storage
         //     };
 
         //     SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
-        //     DataTable result = connection.Select("Laptop_Update ", value);
+        //     DataTable result = connection.Select("Music_Update ", value);
         //     if (connection.errorCode == 0 && connection.errorMessage == "")
         //         return true;
         //     return false;
         // }
 
-        // public static bool Delete(Laptop lap)
+        // public static bool Delete(Music music)
         // {
         //     object[] value =
         //     {
-        //         lap.ID
+        //         music.ID
         //     };
 
         //     SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
-        //     DataTable result = connection.Select("Laptop_Delete ", value);
+        //     DataTable result = connection.Select("Music_Delete ", value);
         //     if (connection.errorCode == 0 && connection.errorMessage == "")
         //         return true;
         //     return false;

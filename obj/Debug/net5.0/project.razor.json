@@ -15664,6 +15664,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Views\\Music\\Create.cshtml",
+      "TargetPath": "Views\\Music\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Views\\First\\ViewProduct.cshtml",
       "TargetPath": "Views\\First\\ViewProduct.cshtml",
       "FileKind": "mvc"
