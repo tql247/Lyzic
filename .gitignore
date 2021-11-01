@@ -65,6 +65,8 @@ artifacts/
 # Tye
 .tye/
 
+bin/
+
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
 
@@ -452,3 +454,6 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+bin/Debug/net5.0/Lyzic.deps.json
+bin/Debug/net5.0/Lyzic.dll
+bin/Debug/net5.0/Lyzic.pdb

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\L2L\\Documents\\Lyzic\\Lyzic.csproj": {}
+    "C:\\Users\\L2L\\source\\repos\\Lyzic\\Lyzic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\L2L\\Documents\\Lyzic\\Lyzic.csproj": {
+    "C:\\Users\\L2L\\source\\repos\\Lyzic\\Lyzic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\L2L\\Documents\\Lyzic\\Lyzic.csproj",
+        "projectUniqueName": "C:\\Users\\L2L\\source\\repos\\Lyzic\\Lyzic.csproj",
         "projectName": "Lyzic",
-        "projectPath": "C:\\Users\\L2L\\Documents\\Lyzic\\Lyzic.csproj",
+        "projectPath": "C:\\Users\\L2L\\source\\repos\\Lyzic\\Lyzic.csproj",
         "packagesPath": "C:\\Users\\L2L\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\L2L\\Documents\\Lyzic\\obj\\",
+        "outputPath": "C:\\Users\\L2L\\source\\repos\\Lyzic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\L2L\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "CAIT.SQLHelper": {
+              "target": "Package",
+              "version": "[2.7.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
