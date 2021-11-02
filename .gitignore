@@ -450,6 +450,7 @@ $RECYCLE.BIN/
 ## Visual Studio Code
 ##
 .vscode/*
+bin/*/*/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -457,3 +458,6 @@ $RECYCLE.BIN/
 bin/Debug/net5.0/Lyzic.deps.json
 bin/Debug/net5.0/Lyzic.dll
 bin/Debug/net5.0/Lyzic.pdb
+wwwroot/uploads/*
+obj/Debug/net5.0/ref/Lyzic.dll
+obj/Debug/net5.0/Lyzic.Views.pdb
