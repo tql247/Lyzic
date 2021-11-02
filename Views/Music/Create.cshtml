@@ -33,15 +33,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
         
 
         <div class="row">
@@ -75,7 +66,10 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="MediaImageCover" class="control-label"></label>
-                        <input asp-for="MediaImageCover" class="form-control" />
+                        <div class="custom-file">
+                            <input asp-for="MediaImageCover" type="file" class="custom-file-input" id="customFile" oninput="fileNameUploaded.textContent = this.files[0].name">
+                            <label class="custom-file-label" id="fileNameUploaded" name="fileNameUploaded" for="MediaImageCover">Choose file</label>
+                        </div>
                         <span asp-validation-for="MediaImageCover" class="text-danger"></span>
                     </div>
                     <div class="form-group">
