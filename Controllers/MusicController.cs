@@ -4,6 +4,7 @@ using Lyzic.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Lyzic.Repositories;
+using Lyzic.Models;
 
 namespace Lyzic.Controllers
 {
@@ -26,6 +27,14 @@ namespace Lyzic.Controllers
         
         // GET: MusicController/Create
         public ActionResult Create()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        // GET: MusicController/Create
+        public ActionResult Create(Music music)
         {
             return View();
         }
