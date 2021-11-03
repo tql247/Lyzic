@@ -36,49 +36,47 @@ namespace Lyzic.Repositories
 
             return lstResult;
         }
-        // /*
          
-        //  */
         public static bool Insert(Music music)
         {
-            Console.WriteLine(music);
-            // object[] value =
-            // {
-            //     music.ID, music.Name, music.Price, music.RAM, music.CPU, music.Storage
-            // };
+            object[] value =
+            {
+                music.ID, music.Name, music.Author, music.Singers, music.Lyric, music.MediaImageCoverURI, music.MediaContentURI, DateTime.Now
+            };
 
-            // SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
-            // DataTable result = connection.Select("Music_Insert ", value);
-            // if (connection.errorCode == 0 && connection.errorMessage == "")
-            //     return true;
-            // return false;
+            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
+            DataTable result = connection.Select("Music_Insert ", value);
+            if (connection.errorCode == 0 && connection.errorMessage == "")
+                return true;
             return false;
         }
 
-        // public static Music Detail(string id)
-        // {
-        //     object[] value =
-        //     {
-        //         id
-        //     };
+        public static Music Detail(int id)
+        {
+            object[] value =
+            {
+                id
+            };
 
-        //     SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
-        //     DataTable result = connection.Select("Music_Detail ", value);
-        //     Music music = new Music();
+            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
+            DataTable result = connection.Select("Music_Detail ", value);
+            Music music = new Music();
 
-        //     if (connection.errorCode == 0 && result.Rows.Count > 0)
-        //     {
-        //         var dr = result.Rows[0];
-        //         music.ID = dr["ID"].ToString();
-        //         music.Name = dr["Name"].ToString();
-        //         music.Price = string.IsNullOrEmpty(dr["Price"].ToString()) ? 0 : int.Parse(dr["Price"].ToString());
-        //         music.RAM = string.IsNullOrEmpty(dr["RAM"].ToString()) ? 0 : int.Parse(dr["RAM"].ToString());
-        //         music.Storage = string.IsNullOrEmpty(dr["Storage"].ToString()) ? 0 : int.Parse(dr["Storage"].ToString());
-        //         music.CPU = dr["CPU"].ToString();
-        //     }
+            if (connection.errorCode == 0 && result.Rows.Count > 0)
+            {
+                var dr = result.Rows[0];
+                music.ID = string.IsNullOrEmpty(dr["ID"].ToString()) ? 0 : int.Parse(dr["ID"].ToString());
+                music.Name = dr["Name"].ToString();
+                music.Author = dr["Author"].ToString();
+                music.Singers = dr["Singers"].ToString();
+                music.Lyric = dr["Lyric"].ToString();
+                music.MediaImageCoverURI = dr["MediaImageCoverURI"].ToString();
+                music.MediaContentURI = dr["MediaContentURI"].ToString();
+                music.CreatedDate = string.IsNullOrEmpty(dr["CreatedDate"].ToString()) ? default : DateTime.Parse(dr["CreatedDate"].ToString());
+            }
 
-        //     return music;
-        // }
+            return music;
+        }
 
         // public static bool Update(Music music)
         // {
@@ -94,18 +92,18 @@ namespace Lyzic.Repositories
         //     return false;
         // }
 
-        // public static bool Delete(Music music)
-        // {
-        //     object[] value =
-        //     {
-        //         music.ID
-        //     };
+        public static bool Delete(int id)
+        {
+            object[] value =
+            {
+                id
+            };
 
-        //     SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
-        //     DataTable result = connection.Select("Music_Delete ", value);
-        //     if (connection.errorCode == 0 && connection.errorMessage == "")
-        //         return true;
-        //     return false;
-        // }
+            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
+            DataTable result = connection.Select("Music_Delete ", value);
+            if (connection.errorCode == 0 && connection.errorMessage == "")
+                return true;
+            return false;
+        }
     }
 }

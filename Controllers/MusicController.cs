@@ -40,19 +40,48 @@ namespace Lyzic.Controllers
         // GET: MusicController/Create
         public ActionResult Create(Music music)
         {
-            Console.WriteLine(music);
-            Console.WriteLine(music.MediaImageCover);
             if (music.MediaImageCover != null) {
-                
-                Console.WriteLine(music.MediaImageCover.FileName);
+                // Save file                 
                 var filePath = Path.Combine(_environment.WebRootPath, "uploads", music.MediaImageCover.FileName);
                 using var fileStream = new FileStream(filePath, FileMode.Create);
                 music.MediaImageCover.CopyTo(fileStream);
-                Console.WriteLine(Path.Combine("~/uploads/", music.MediaImageCover.FileName));
-                Console.WriteLine(filePath);
+
+                // Set file relative path
+                music.MediaImageCoverURI = Path.Combine("~/uploads/", music.MediaImageCover.FileName);
             }
 
-            return View();
+            MusicRes.Insert(music);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        
+
+        // GET: LaptopController/Details
+        public ActionResult Details(int id)
+        {
+            Console.WriteLine(_environment.WebRootPath);
+            Console.WriteLine();
+            
+            var music = MusicRes.Detail(id);
+            return View(music);
+        }
+
+        // GET: LaptopController/Edit
+        public ActionResult Edit(int id)
+        {
+            Console.WriteLine(id);
+            var music = MusicRes.Detail(id);
+            return View(music);
+        }
+
+        // GET: LaptopController/Delete
+        public IActionResult Delete(int id)
+        {
+            Console.WriteLine(id);
+            MusicRes.Delete(id);
+            
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -15669,6 +15669,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Views\\Music\\Details.cshtml",
+      "TargetPath": "Views\\Music\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Views\\First\\ViewProduct.cshtml",
       "TargetPath": "Views\\First\\ViewProduct.cshtml",
       "FileKind": "mvc"
@@ -15676,6 +15681,11 @@
     {
       "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Views\\First\\ViewProduct3.cshtml",
       "TargetPath": "Views\\First\\ViewProduct3.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Views\\Music\\Edit.cshtml",
+      "TargetPath": "Views\\Music\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
