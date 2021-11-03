@@ -29,6 +29,8 @@ namespace Lyzic.Models
         public IFormFile MediaImageCover {get; set; }
 
         public string MediaContentURI {get; set; }
+        
+        public IFormFile MediaContent {get; set; }
 
         public DateTime CreatedDate {get; set; }
     }

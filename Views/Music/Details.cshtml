@@ -48,7 +48,14 @@
                     Lyric: @Html.DisplayFor(model => model.Lyric)
                 </div>
                 <div >
-                    image: <img src="@Url.Content(@Model.MediaImageCoverURI)" alt="">
+                    Image: <img src="@Url.Content(@Model.MediaImageCoverURI)" alt="">
+                </div>
+                <div >
+                    Content: 
+                    <audio controls >
+                        <source src="@Url.Content(@Model.MediaContentURI)" type="audio/mp3">
+                        Your browser does not support the audio tag.
+                    </audio>
                 </div>
             </div>
         </div>

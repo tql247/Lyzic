@@ -49,12 +49,21 @@ namespace Lyzic.Controllers
                 // Set file relative path
                 music.MediaImageCoverURI = Path.Combine("~/uploads/", music.MediaImageCover.FileName);
             }
+            
+            if (music.MediaContent != null) {
+                // Save file                 
+                var filePath = Path.Combine(_environment.WebRootPath, "uploads", music.MediaContent.FileName);
+                using var fileStream = new FileStream(filePath, FileMode.Create);
+                music.MediaContent.CopyTo(fileStream);
+
+                // Set file relative path
+                music.MediaContentURI = Path.Combine("~/uploads/", music.MediaContent.FileName);
+            }
 
             MusicRes.Insert(music);
 
             return RedirectToAction(nameof(Index));
         }
-
         
 
         // GET: LaptopController/Details
