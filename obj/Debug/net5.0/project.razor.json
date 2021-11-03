@@ -15654,6 +15654,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Views\\Shared\\_UserLayout.cshtml",
+      "TargetPath": "Views\\Shared\\_UserLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Views\\Shared\\_AlertMessage.cshtml",
       "TargetPath": "Views\\Shared\\_AlertMessage.cshtml",
       "FileKind": "mvc"
