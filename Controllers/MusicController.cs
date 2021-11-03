@@ -66,7 +66,7 @@ namespace Lyzic.Controllers
         }
         
 
-        // GET: LaptopController/Details
+        // GET: MusicController/Details
         public ActionResult Details(int id)
         {
             Console.WriteLine(_environment.WebRootPath);
@@ -76,7 +76,7 @@ namespace Lyzic.Controllers
             return View(music);
         }
 
-        // GET: LaptopController/Edit
+        // GET: MusicController/Edit
         public ActionResult Edit(int id)
         {
             Console.WriteLine(id);
@@ -84,7 +84,37 @@ namespace Lyzic.Controllers
             return View(music);
         }
 
-        // GET: LaptopController/Delete
+
+        [HttpPost]
+        // POST: MusicController/Edit
+        public ActionResult Edit(int id, Music music)
+        {
+            if (music.MediaImageCover != null) {
+                // Save file                 
+                var filePath = Path.Combine(_environment.WebRootPath, "uploads", music.MediaImageCover.FileName);
+                using var fileStream = new FileStream(filePath, FileMode.Create);
+                music.MediaImageCover.CopyTo(fileStream);
+
+                // Set file relative path
+                music.MediaImageCoverURI = Path.Combine("~/uploads/", music.MediaImageCover.FileName);
+            }
+            
+            if (music.MediaContent != null) {
+                // Save file                 
+                var filePath = Path.Combine(_environment.WebRootPath, "uploads", music.MediaContent.FileName);
+                using var fileStream = new FileStream(filePath, FileMode.Create);
+                music.MediaContent.CopyTo(fileStream);
+
+                // Set file relative path
+                music.MediaContentURI = Path.Combine("~/uploads/", music.MediaContent.FileName);
+            }
+
+            MusicRes.Edit(music);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: MusicController/Delete
         public IActionResult Delete(int id)
         {
             Console.WriteLine(id);

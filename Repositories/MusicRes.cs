@@ -78,19 +78,19 @@ namespace Lyzic.Repositories
             return music;
         }
 
-        // public static bool Update(Music music)
-        // {
-        //     object[] value =
-        //     {
-        //         music.ID, music.Name, music.Price, music.RAM, music.CPU, music.Storage
-        //     };
+        public static bool Edit(Music music)
+        {
+            object[] value =
+            {
+                music.ID, music.Name, music.Author, music.Singers, music.Lyric, music.MediaImageCoverURI, music.MediaContentURI, DateTime.Now
+            };
 
-        //     SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
-        //     DataTable result = connection.Select("Music_Update ", value);
-        //     if (connection.errorCode == 0 && connection.errorMessage == "")
-        //         return true;
-        //     return false;
-        // }
+            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
+            DataTable result = connection.Select("Music_Update ", value);
+            if (connection.errorCode == 0 && connection.errorMessage == "")
+                return true;
+            return false;
+        }
 
         public static bool Delete(int id)
         {
