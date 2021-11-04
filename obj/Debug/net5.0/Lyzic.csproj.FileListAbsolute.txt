@@ -98,8 +98,6 @@ C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Client\Views\Shared
 C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Client\Views\Shared\_VolnaLayout.cshtml.g.cs
 C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Client\Views\_ViewImports.cshtml.g.cs
 C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Client\Views\_ViewStart.cshtml.g.cs
-C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
-C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\Home\Privacy.cshtml.g.cs
 C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\Music\Create.cshtml.g.cs
 C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\Music\Details.cshtml.g.cs
 C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\Music\Edit.cshtml.g.cs
@@ -112,3 +110,5 @@ C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\
 C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
 C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\L2L\source\repos\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\Dashboard\Privacy.cshtml.g.cs

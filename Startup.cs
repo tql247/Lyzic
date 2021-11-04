@@ -77,7 +77,7 @@ namespace Lyzic
 
                 endpoints.MapAreaControllerRoute(
                     name: "Admin",
-                    pattern: "admin/{controller=Home}/{action=Index}/{id?}",
+                    pattern: "admin/{controller=Dashboard}/{action=Index}/{id?}",
                     areaName: "Admin"    
                 );
                 endpoints.MapRazorPages();
