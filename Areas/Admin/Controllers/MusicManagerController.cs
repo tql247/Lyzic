@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace Lyzic.Controllers
 {
-    public class MusicController : Controller
+    public class MusicManagerController : Controller
     {
-        private readonly ILogger<MusicController> _logger;
+        private readonly ILogger<MusicManagerController> _logger;
         private readonly IWebHostEnvironment _environment;
-        public MusicController(ILogger<MusicController> logger, IWebHostEnvironment env) 
+        public MusicManagerController(ILogger<MusicManagerController> logger, IWebHostEnvironment env) 
         {  
             _logger = logger;
             _environment = env;
@@ -22,11 +22,11 @@ namespace Lyzic.Controllers
 
         public IActionResult Index()
         {
-            var listMusic = MusicRes.GetAll();
+            var listMusic = MusicManagerRes.GetAll();
             return View(listMusic);
         }
         
-        // GET: MusicController/Create
+        // GET: MusicManagerController/Create
         public ActionResult Create()
         {
             return View();
@@ -34,8 +34,8 @@ namespace Lyzic.Controllers
 
 
         [HttpPost]
-        // GET: MusicController/Create
-        public ActionResult Create(Music music)
+        // GET: MusicManagerController/Create
+        public ActionResult Create(MusicManager music)
         {
             if (music.MediaImageCover != null) {
                 // Save file                 
@@ -57,34 +57,34 @@ namespace Lyzic.Controllers
                 music.MediaContentURI = Path.Combine("~/uploads/", music.MediaContent.FileName);
             }
 
-            MusicRes.Insert(music);
+            MusicManagerRes.Insert(music);
 
             return RedirectToAction(nameof(Index));
         }
         
 
-        // GET: MusicController/Details
+        // GET: MusicManagerController/Details
         public ActionResult Details(int id)
         {
             Console.WriteLine(_environment.WebRootPath);
             Console.WriteLine();
             
-            var music = MusicRes.Detail(id);
+            var music = MusicManagerRes.Detail(id);
             return View(music);
         }
 
-        // GET: MusicController/Edit
+        // GET: MusicManagerController/Edit
         public ActionResult Edit(int id)
         {
             Console.WriteLine(id);
-            var music = MusicRes.Detail(id);
+            var music = MusicManagerRes.Detail(id);
             return View(music);
         }
 
 
         [HttpPost]
-        // POST: MusicController/Edit
-        public ActionResult Edit(int id, Music music)
+        // POST: MusicManagerController/Edit
+        public ActionResult Edit(int id, MusicManager music)
         {
             if (music.MediaImageCover != null) {
                 // Save file                 
@@ -106,16 +106,16 @@ namespace Lyzic.Controllers
                 music.MediaContentURI = Path.Combine("~/uploads/", music.MediaContent.FileName);
             }
 
-            MusicRes.Edit(music);
+            MusicManagerRes.Edit(music);
 
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: MusicController/Delete
+        // GET: MusicManagerController/Delete
         public IActionResult Delete(int id)
         {
             Console.WriteLine(id);
-            MusicRes.Delete(id);
+            MusicManagerRes.Delete(id);
             
             return RedirectToAction(nameof(Index));
         }

@@ -28,6 +28,8 @@ namespace Lyzic.Repositories
                     music.Name = dr["Name"].ToString();
                     music.Author = dr["Author"].ToString();
                     music.Singers = dr["Singers"].ToString();
+                    music.MediaImageCoverURI = dr["MediaImageCoverURI"].ToString().Replace("~", "https://localhost:5001");
+                    music.MediaContentURI = dr["MediaContentURI"].ToString();
                     music.CreatedDate = string.IsNullOrEmpty(dr["CreatedDate"].ToString()) ? default : DateTime.Parse(dr["CreatedDate"].ToString());
 
                     lstResult.Add(music);
