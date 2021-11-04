@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Lyzic.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +9,9 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Http;
+using System.Net;
+using Lyzic.ExtendMethods;
 
 namespace Lyzic
 {
@@ -40,7 +42,6 @@ namespace Lyzic
                 
             });
 
-            services.AddSingleton(typeof(ProductService), typeof(ProductService));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +60,8 @@ namespace Lyzic
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.AddStatusCodePages();
+
             app.UseRouting();
 
             app.UseAuthentication();
@@ -66,9 +69,17 @@ namespace Lyzic
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
+                endpoints.MapAreaControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}",
+                    areaName: "Client"    
+                );
+
+                endpoints.MapAreaControllerRoute(
+                    name: "Admin",
+                    pattern: "admin/{controller=Home}/{action=Index}/{id?}",
+                    areaName: "Admin"    
+                );
                 endpoints.MapRazorPages();
             });
         }
