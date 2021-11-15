@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\L2L\\source\\repos\\Lyzic\\Lyzic.csproj": {}
+    "C:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Lyzic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\L2L\\source\\repos\\Lyzic\\Lyzic.csproj": {
+    "C:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Lyzic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\L2L\\source\\repos\\Lyzic\\Lyzic.csproj",
+        "projectUniqueName": "C:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Lyzic.csproj",
         "projectName": "Lyzic",
-        "projectPath": "C:\\Users\\L2L\\source\\repos\\Lyzic\\Lyzic.csproj",
-        "packagesPath": "C:\\Users\\L2L\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\L2L\\source\\repos\\Lyzic\\obj\\",
+        "projectPath": "C:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Lyzic.csproj",
+        "packagesPath": "C:\\Users\\LINH\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LINH\\Documents\\LINH\\Lyzic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\L2L\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LINH\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

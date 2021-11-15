@@ -7,6 +7,6 @@ namespace Lyzic.Const
 {
     public class ConstValue
     {
-        public static string ConnectionString = "Data Source=DESKTOP-5VKL5G9\\SQLEXPRESS;Initial Catalog=Lyzic;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public static string ConnectionString = "Data Source=DESKTOP-VRJIT24\\SQLEXPRESS;Initial Catalog=Lyzic;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
     }
 }
