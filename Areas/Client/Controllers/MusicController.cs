@@ -29,7 +29,7 @@ namespace Lyzic.Controllers
         // GET: MusicManagerController/Details
         public ActionResult Details(int id)
         {
-            var music = MusicManagerRes.Detail(id);
+            var music = MusicRes.Detail(id);
             return View(music);
         }
     }

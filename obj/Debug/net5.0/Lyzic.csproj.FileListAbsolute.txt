@@ -178,4 +178,3 @@ C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\Acco
 C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\AccountManager\Create.cshtml.g.cs
 C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\AccountManager\Details.cshtml.g.cs
 C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\AccountManager\Edit.cshtml.g.cs
-C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\AccountManager\Delete.cshtml.g.cs
