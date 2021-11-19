@@ -1,0 +1,98 @@
+@model Lyzic.Models.AccountManager
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
+    <div class="az-content-left az-content-left-components">
+        <div class="component-item">
+        <label>Quản lý Account</label>
+        <nav class="nav flex-column">            
+            <a href="#" class="nav-link active">Thông tin chung</a>
+            <a href="#" class="nav-link">Bình luận</a>
+            @* <a href="#" class="nav-link active">Thể loại</a> *@
+
+        </nav>
+
+        </div><!-- component-item -->
+
+    </div><!-- az-content-left -->
+    <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+        <div class="az-content-breadcrumb">
+        <span>Account</span>
+        <span>Thông tin chung</span>
+        <span>Thêm mới</span>
+        </div>
+
+
+
+
+        
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="FullName" class="control-label"></label>
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UserName" class="control-label"></label>
+                        <input asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PassWord" class="control-label"></label>
+                        <input asp-for="PassWord" class="form-control" />
+                        <span asp-validation-for="PassWord" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RoleName" class="control-label"></label>
+                        <input asp-for="RoleName" class="form-control" />
+                        <span asp-validation-for="RoleName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+        <div class="ht-40"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="az-footer mg-t-auto">
+        <div class="container">
+            <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
+        </div><!-- container -->
+        </div><!-- az-footer -->
+    </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

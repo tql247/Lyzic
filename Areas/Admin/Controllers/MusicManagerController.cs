@@ -114,7 +114,6 @@ namespace Lyzic.Controllers
         // GET: MusicManagerController/Delete
         public IActionResult Delete(int id)
         {
-            Console.WriteLine(id);
             MusicManagerRes.Delete(id);
             
             return RedirectToAction(nameof(Index));

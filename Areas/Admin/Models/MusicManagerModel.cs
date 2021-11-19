@@ -11,8 +11,6 @@ namespace Lyzic.Models
 {
     public class MusicManager
     {
-        [Key]
-        [Required]
         public int ID {get; set; }
 
         [Required]

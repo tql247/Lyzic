@@ -41,7 +41,7 @@ namespace Lyzic.Repositories
         {
             object[] value =
             {
-                MusicManager.ID, MusicManager.Name, MusicManager.Author, MusicManager.Singers, MusicManager.Lyric, MusicManager.MediaImageCoverURI, MusicManager.MediaContentURI, DateTime.Now
+                MusicManager.Name, MusicManager.Author, MusicManager.Singers, MusicManager.Lyric, MusicManager.MediaImageCoverURI, MusicManager.MediaContentURI, DateTime.Now
             };
 
             SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);

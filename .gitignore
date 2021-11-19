@@ -461,3 +461,7 @@ bin/Debug/net5.0/Lyzic.pdb
 wwwroot/uploads/*
 obj/Debug/net5.0/ref/Lyzic.dll
 obj/Debug/net5.0/Lyzic.Views.pdb
+obj/*
+obj/
+.gitignore
+obj/Debug/net5.0/Lyzic.Views.pdb

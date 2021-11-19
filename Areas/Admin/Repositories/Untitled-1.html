@@ -1,0 +1,41 @@
+
+        <table id="example2" class="table">
+            <thead>
+            <tr>
+                <th class="wd-25p">Họ Tên</th>
+                <th class="wd-20p">Tên tài khoản</th>
+                <th class="wd-20p">Mật khẩu</th>
+                <th class="wd-15p">Ngày tạo</th>
+                <th >Controll</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>
+                        <td class="text-nowrap">
+                            @Html.DisplayFor(modelItem => item.CreatedDate)
+                        </td>
+                        <td class="d-flex justify-content-between flex-grow">
+                            <a class="btn btn-light" asp-action="Details" asp-route-id="@item.ID">
+                                <i class="typcn icon typcn-eye text-primary"></i>
+                            </a>
+                            <a class="btn btn-light" asp-action="Edit" asp-route-id="@item.ID">
+                                <i class="typcn icon typcn-edit text-info"></i> 
+                            </a>
+                            <a class="btn btn-light" data-toggle="modal" data-target="#modaldemo1" asp-action="Delete" asp-route-id="@item.ID">
+                                <i class="typcn icon typcn-delete-outline text-danger"></i> 
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>

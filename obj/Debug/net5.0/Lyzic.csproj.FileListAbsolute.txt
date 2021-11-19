@@ -174,3 +174,8 @@ C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Lyzic.dll
 C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\ref\Lyzic.dll
 C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Lyzic.pdb
 C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Lyzic.genruntimeconfig.cache
+C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\AccountManager\Index.cshtml.g.cs
+C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\AccountManager\Create.cshtml.g.cs
+C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\AccountManager\Details.cshtml.g.cs
+C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\AccountManager\Edit.cshtml.g.cs
+C:\Users\LINH\Documents\LINH\Lyzic\obj\Debug\net5.0\Razor\Areas\Admin\Views\AccountManager\Delete.cshtml.g.cs

@@ -1,0 +1,70 @@
+@model Lyzic.Models.AccountManager
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
+    <div class="az-content-left az-content-left-components">
+        <div class="component-item">
+        <label>Quản lý Tài Khoản</label>
+        <nav class="nav flex-column">            
+            <a href="#" class="nav-link active">Thông tin chung</a>
+            <a href="#" class="nav-link">Bình luận</a>
+            @* <a href="#" class="nav-link active">Thể loại</a> *@
+
+        </nav>
+
+        </div><!-- component-item -->
+
+    </div><!-- az-content-left -->
+    <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+        <div class="az-content-breadcrumb">
+        <span>Account</span>
+        <span>Thông tin chung</span>
+        <span>Thêm mới</span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div >
+                    ID: @Html.DisplayFor(model => model.ID)
+                </div>
+                <div >
+                    FullName: @Html.DisplayFor(model => model.FullName)
+                </div>
+                <div >
+                    UserName: @Html.DisplayFor(model => model.UserName)
+                </div>
+                <div >
+                    RoleName: @Html.DisplayFor(model => model.RoleName)
+                </div>
+                <div >
+                    CreatedDate: @Html.DisplayFor(model => model.CreatedDate)
+                </div>
+                
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+        <div class="ht-40"></div>
+
+        <div class="az-footer mg-t-auto">
+        <div class="container">
+            <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
+        </div><!-- container -->
+        </div><!-- az-footer -->
+    </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
