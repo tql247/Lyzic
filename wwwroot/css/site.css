@@ -1,3 +1,8 @@
 ﻿.cursor-pointer {
     cursor: pointer;
 }
+
+.download-media {
+    text-decoration: none;
+    color: #c0c0c0
+}
