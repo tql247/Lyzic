@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Lyzic.csproj",
+  "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Lyzic.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,128 +15619,178 @@
   "RootNamespace": "Lyzic",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Admin\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Admin\\Views\\Dashboard\\Privacy.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Dashboard\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Client\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Client\\Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Admin\\Views\\Shared\\_AlertMessage.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Shared\\_AlertMessage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Client\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Areas\\Client\\Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Admin\\Views\\MusicManager\\Index.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\MusicManager\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Client\\Views\\Shared\\_VolnaLayout.cshtml",
-      "TargetPath": "Areas\\Client\\Views\\Shared\\_VolnaLayout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Pages\\index.cshtml",
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Pages\\index.cshtml",
       "TargetPath": "Pages\\index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Admin\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\_ViewStart.cshtml",
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\NotificationManager\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\NotificationManager\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Client\\Views\\Shared\\_AlertMessage.cshtml",
-      "TargetPath": "Areas\\Client\\Views\\Shared\\_AlertMessage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Client\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Areas\\Client\\Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Admin\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Client\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Areas\\Client\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Pages\\Razor.cshtml",
-      "TargetPath": "Pages\\Razor.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Client\\Views\\Shared\\Error.cshtml",
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Areas\\Client\\Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Client\\Views\\Music\\Details.cshtml",
-      "TargetPath": "Areas\\Client\\Views\\Music\\Details.cshtml",
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Client\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Areas\\Client\\Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Client\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Areas\\Client\\Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Admin\\Views\\Shared\\_AziaLayout.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Shared\\_AziaLayout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Client\\Views\\Music\\Index.cshtml",
-      "TargetPath": "Areas\\Client\\Views\\Music\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Admin\\Views\\MusicManager\\Edit.cshtml",
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\MusicManager\\Edit.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\MusicManager\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Admin\\Views\\MusicManager\\Details.cshtml",
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\MusicManager\\Details.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\MusicManager\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\L2L\\source\\repos\\Lyzic\\Areas\\Admin\\Views\\MusicManager\\Create.cshtml",
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Pages\\Razor.cshtml",
+      "TargetPath": "Pages\\Razor.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Music\\Index.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\Music\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Shared\\_AlertMessage.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\Shared\\_AlertMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\AccountManager\\Create.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\AccountManager\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Music\\Details.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\Music\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Notification\\Details.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\Notification\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\Dashboard\\Privacy.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Dashboard\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\NotificationManager\\Create.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\NotificationManager\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\MusicManager\\Create.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\MusicManager\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\MusicManager\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\MusicManager\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\AccountManager\\Edit.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\AccountManager\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\AccountManager\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\AccountManager\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\Shared\\_AlertMessage.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_AlertMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\NotificationManager\\Details.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\NotificationManager\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\Shared\\_AziaLayout.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_AziaLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Shared\\_VolnaLayout.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\Shared\\_VolnaLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\NotificationManager\\Edit.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\NotificationManager\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\AccountManager\\Details.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\AccountManager\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Notification\\Index.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\Notification\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     }
   ],

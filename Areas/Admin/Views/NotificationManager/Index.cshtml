@@ -1,0 +1,134 @@
+@model IEnumerable<Lyzic.Models.NotificationManager>
+
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
+    <div class="az-content-left az-content-left-components">
+        <div class="component-item">
+        <label>Quản lý thông báo</label>
+        <nav class="nav flex-column">            
+            <a href="#" class="nav-link active">Thông tin chung</a>
+            <a href="#" class="nav-link">Bình luận</a>
+            @* <a href="#" class="nav-link active">Thể loại</a> *@
+
+        </nav>
+
+        </div><!-- component-item -->
+
+    </div><!-- az-content-left -->
+    <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+        <div class="az-content-breadcrumb">
+        <span>Notification</span>
+        <span>Thông tin chung</span>
+        </div>
+
+        <div class="mg-b-10 mg-t-10">
+            <a asp-action="Create" class="tx-15 span-buttons">
+                <i class="typcn typcn-plus-outline"></i>
+                <span class="mg-2"></span>
+                <span>Thêm mới</span>  
+            </a>
+        </div>
+
+        <div>
+        <table id="example2" class="table">
+            <thead>
+            <tr>
+                <th class="wd-25p">Tiêu đề</th>
+                <th class="wd-20p">Nội dung</th>
+                <th class="wd-20p">Người tạo</th>
+                <th class="wd-15p">Ngày tạo</th>
+                <th >Controll</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td class="text-truncate" style="max-width: 150px;">
+                            @Html.DisplayFor(modelItem => item.Content)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreatedBy)
+                        </td>
+                        <td class="text-nowrap">
+                            @Html.DisplayFor(modelItem => item.CreatedDate)
+                        </td>
+                        <td class="d-flex justify-content-between flex-grow">
+                            <a class="btn btn-light" asp-action="Details" asp-route-id="@item.ID">
+                                <i class="typcn icon typcn-eye text-primary"></i>
+                            </a>
+                            <a class="btn btn-light" asp-action="Edit" asp-route-id="@item.ID">
+                                <i class="typcn icon typcn-edit text-info"></i> 
+                            </a>
+                            <a class="btn btn-light" data-toggle="modal" data-target="#modaldemo1" asp-action="Delete" asp-route-id="@item.ID">
+                                <i class="typcn icon typcn-delete-outline text-danger"></i> 
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+
+        <div class="ht-40"></div>
+
+        <div class="az-footer mg-t-auto">
+        <div class="container">
+            <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
+        </div><!-- container -->
+        </div><!-- az-footer -->
+    </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
+
+<div id="modaldemo1" class="modal" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content modal-content-demo">
+        <div class="modal-header">
+        <h6 class="modal-title">Confirm Delete</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <h6>This action can not be undo</h6>
+        <p>Are you sure you want to delete?</p>
+        </div>
+        <div class="modal-footer">
+        <a type="button" class="btn btn-danger btn-ok">Yes</a>
+        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+    </div><!-- modal-dialog -->
+</div>
+
+
+<script>
+    $(function(){
+    'use strict'
+
+    $('#example2').DataTable({
+        responsive: true,
+        language: {
+        searchPlaceholder: 'Search...',
+        sSearch: '',
+        lengthMenu: '_MENU_ items/page',
+        }
+    });
+
+    // Select2
+    $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+    });
+
+    $('#modaldemo1').on('show.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', e.relatedTarget.href);
+    });
+</script>
