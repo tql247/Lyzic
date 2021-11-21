@@ -109,5 +109,33 @@ namespace Lyzic.Repositories
                 return true;
             return false;
         }
+
+        public static AccountManager CheckAccount(string username, string password)
+        {
+            object[] value =
+            {
+                username
+            };
+
+            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
+            DataTable result = connection.Select("Account_CheckLogin", value);
+            AccountManager AccountManager = new AccountManager();
+
+            if (connection.errorCode == 0 && result.Rows.Count > 0)
+            {
+                var dr = result.Rows[0];
+                AccountManager.ID = string.IsNullOrEmpty(dr["ID"].ToString()) ? 0 : int.Parse(dr["ID"].ToString());
+                AccountManager.FullName = dr["FullName"].ToString();
+                AccountManager.UserName = dr["UserName"].ToString();
+                AccountManager.PassWord = dr["PassWord"].ToString();
+                AccountManager.RoleName = dr["RoleName"].ToString();
+                AccountManager.CreatedDate = string.IsNullOrEmpty(dr["CreatedDate"].ToString()) ? default : DateTime.Parse(dr["CreatedDate"].ToString());
+
+                if (AccountManager.PassWord == password)
+                    return AccountManager;
+            }
+
+            return null;
+        }
     }
 }

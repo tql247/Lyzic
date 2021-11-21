@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="CAIT.SQLHelper" Version="2.7.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0" />
   </ItemGroup>
 
 </Project>

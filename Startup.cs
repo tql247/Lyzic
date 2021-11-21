@@ -11,7 +11,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
 using System.Net;
+using System.Text;
 using Lyzic.ExtendMethods;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Lyzic
 {
@@ -29,18 +33,62 @@ namespace Lyzic
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromDays(1);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+            services.AddControllers();
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.Configure<RazorViewEngineOptions>(options => {
+
+            services.Configure<RazorViewEngineOptions>(options =>
+            {
 
                 // MyView/Controller/Actrion.cshtml
                 // {0} -> Action
                 // {1} -> Controller
                 // {2} -> Area
-                
+
                 options.ViewLocationFormats.Add("/MyView/{1}/{0}" + RazorViewEngine.ViewExtension);
-                
+
             });
+            // services.AddAuthentication()
+            //         .AddCookie(options =>
+            //         {
+            //             options.LoginPath = "/Account/Unauthorized/";
+            //             options.AccessDeniedPath = "/Account/Forbidden/";
+            //         })
+            //         .AddJwtBearer(options =>
+            //         {
+            //             options.Audience = "http://localhost:5001/";
+            //             options.Authority = "http://localhost:5000/";
+            //         });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Account/Unauthorized/";
+                    options.AccessDeniedPath = "/Account/Forbidden/";
+                })
+                .AddJwtBearer(option =>
+                {
+                    option.RequireHttpsMetadata = false;
+                    option.SaveToken = true;
+                    option.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidAudience = Configuration["Jwt:Audience"],
+                        ValidIssuer = Configuration["Jwt:Issuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                    };
+                });
+
+
 
         }
 
@@ -54,9 +102,18 @@ namespace Lyzic
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseSession();
+            app.Use(async (context, next) =>
+            {
+                var JWToken = context.Session.GetString("JWToken");
+                if (!string.IsNullOrEmpty(JWToken))
+                {
+                    context.Request.Headers.Add("Authorization", "Bearer " + JWToken);
+                }
+                await next();
+            });
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -72,13 +129,13 @@ namespace Lyzic
                 endpoints.MapAreaControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}",
-                    areaName: "Client"    
+                    areaName: "Client"
                 );
 
                 endpoints.MapAreaControllerRoute(
                     name: "Admin",
                     pattern: "admin/{controller=Dashboard}/{action=Index}/{id?}",
-                    areaName: "Admin"    
+                    areaName: "Admin"
                 );
                 endpoints.MapRazorPages();
             });

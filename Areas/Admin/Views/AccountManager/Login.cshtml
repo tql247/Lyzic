@@ -1,0 +1,47 @@
+@model Lyzic.Models.AccountManager
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+
+<div class="az-signin-wrapper min-vh-100">
+    <div class="az-card-signin">
+    <h1 class="az-logo text-capitalize">Lyzic Admin</h1>
+    <div class="az-signin-header">
+        <h2>Welcome back!</h2>
+        <h4>Please sign in to continue</h4>
+
+        <form asp-controller="TokenAdmin" asp-action="Login">
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" placeholder="Enter your username" value="" />
+                <span asp-validation-for="UserName"  class="text-danger"></span>
+            </div><!-- form-group -->
+            <div class="form-group"> 
+                <label asp-for="PassWord" class="control-label"></label>
+                <input type="password" asp-for="PassWord" class="form-control"  placeholder="Enter your password" value="123456"/>
+                <span asp-validation-for="PassWord" class="text-danger"></span>
+            </div><!-- form-group -->
+            <button class="btn btn-az-primary btn-block" type="submit" value="Login">Sign In</button>
+        </form>
+    </div><!-- az-signin-header -->
+    <div class="az-signin-footer">
+        <p><a href="">Forgot password?</a></p>
+        <p>Don't have an account? <a href="page-signup.html">Create an Account</a></p>
+    </div><!-- az-signin-footer -->
+    </div><!-- az-card-signin -->
+</div><!-- az-signin-wrapper -->
+
+
+<script>
+    $(function(){
+    'use strict'
+    
+     $('.az-header').addClass('d-none');
+     $('.az-footer').addClass('d-none');
+
+
+    });
+</script>

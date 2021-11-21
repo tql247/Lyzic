@@ -15714,6 +15714,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\AccountManager\\Login.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\AccountManager\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Admin\\Views\\AccountManager\\Index.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\AccountManager\\Index.cshtml",
       "FileKind": "mvc"
@@ -15741,6 +15746,11 @@
     {
       "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Home\\Index.cshtml",
       "TargetPath": "Areas\\Client\\Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Account\\Signup.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\Account\\Signup.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15786,6 +15796,11 @@
     {
       "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Notification\\Index.cshtml",
       "TargetPath": "Areas\\Client\\Views\\Notification\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LINH\\Documents\\LINH\\Lyzic\\Areas\\Client\\Views\\Account\\SignIn.cshtml",
+      "TargetPath": "Areas\\Client\\Views\\Account\\SignIn.cshtml",
       "FileKind": "mvc"
     },
     {
