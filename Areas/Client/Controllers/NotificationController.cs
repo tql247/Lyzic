@@ -29,8 +29,8 @@ namespace Lyzic.Controllers
         //GET: NotificationManagerController/Details
         public ActionResult Details(int id)
         {
-           // var music = NotificationRes.Detail(id);
-            return View();
+           var notification = NotificationRes.Detail(id);
+            return View(notification);
         }
     }
 }
