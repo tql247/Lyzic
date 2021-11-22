@@ -58,7 +58,7 @@ namespace Lyzic.Controllers
 
                 HttpContext.Session.SetString("JWToken", tokenString);
 
-                return Redirect("~/admin");
+                return Redirect("/admin");
             }
             else
             {
@@ -69,7 +69,7 @@ namespace Lyzic.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return Redirect("~/");
+            return Redirect("/");
         }
 
     }
