@@ -94,6 +94,9 @@
             <li class="nav-item">
               <a asp-controller="AccountManager" asp-action="Index" class="nav-link"><i class="typcn typcn-user-outline"></i> Account</a>
             </li>
+            <li class='@(ViewContext.RouteData.Values["Controller"].ToString() == "ArtistManager" ? "active" : "") nav-item'>
+              <a  asp-controller="ArtistManager" asp-action="Index" class="nav-link"><i class="typcn typcn-notes-outline"></i> Artist</a>
+            </li>
             <li class="nav-item">
               <a href="" class="nav-link with-sub"><i class="typcn typcn-book"></i> Components</a>
               <div class="az-menu-sub">

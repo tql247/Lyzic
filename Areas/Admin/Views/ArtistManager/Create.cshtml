@@ -1,4 +1,4 @@
-@model Lyzic.Models.MusicManager
+@model Lyzic.Models.ArtistManager
 
 @{
     ViewData["Title"] = "Create";
@@ -9,7 +9,7 @@
     <div class="container">
     <div class="az-content-left az-content-left-components">
         <div class="component-item">
-        <label>Quản lý Music</label>
+        <label>Quản lý Thông báo</label>
         <nav class="nav flex-column">            
             <a href="#" class="nav-link active">Thông tin chung</a>
             <a href="#" class="nav-link">Bình luận</a>
@@ -22,16 +22,10 @@
     </div><!-- az-content-left -->
     <div class="az-content-body pd-lg-l-40 d-flex flex-column">
         <div class="az-content-breadcrumb">
-        <span>Music</span>
+        <span>Artist</span>
         <span>Thông tin chung</span>
         <span>Thêm mới</span>
         </div>
-
-
-
-
-        
-
         <div class="row">
             <div class="col-md-4">
                 <form asp-action="Create" enctype="multipart/form-data">
@@ -42,25 +36,9 @@
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Author" class="control-label"></label>
-                        <input asp-for="Author" class="form-control" />
-                        <span asp-validation-for="Author" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Singers" class="control-label"></label>
-                        <input asp-for="Singers" class="form-control" />
-                        <span asp-validation-for="Singers" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Genres" class="control-label"></label>
-                        <input asp-for="Genres" class="form-control" />
-                        <span asp-validation-for="Genres" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Lyric" class="control-label"></label>
-                        <textarea asp-for="Lyric" rows="5" class="form-control" placeholder="Textarea"></textarea>
-
-                        <span asp-validation-for="Lyric" class="text-danger"></span>
+                        <label asp-for="Biography" class="control-label"></label>
+                        <textarea asp-for="Biography" rows="5" class="form-control" placeholder="Textarea"></textarea>
+                        <span asp-validation-for="Biography" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="MediaImageCover" class="control-label"></label>
@@ -69,14 +47,6 @@
                             <label class="custom-file-label" id="fileNameUploaded" name="fileNameUploaded" for="MediaImageCover">Choose file</label>
                         </div>
                         <span asp-validation-for="MediaImageCover" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="MediaContent" class="control-label"></label>
-                        <div class="custom-file">
-                            <input asp-for="MediaContent" type="file" class="custom-file-input"  oninput="fileNameUploaded2.textContent = this.files[0].name">
-                            <label class="custom-file-label" id="fileNameUploaded2" name="fileNameUploaded2" for="MediaContent">Choose file</label>
-                        </div>
-                        <span asp-validation-for="MediaContent" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Create" class="btn btn-primary" />
@@ -90,19 +60,6 @@
         </div>
 
         <div class="ht-40"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <div class="az-footer mg-t-auto">
         <div class="container">

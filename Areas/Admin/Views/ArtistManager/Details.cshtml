@@ -1,4 +1,4 @@
-@model Lyzic.Models.NotificationManager
+@model Lyzic.Models.ArtistManager
 
 @{
     ViewData["Title"] = "Details";
@@ -22,7 +22,7 @@
     </div><!-- az-content-left -->
     <div class="az-content-body pd-lg-l-40 d-flex flex-column">
         <div class="az-content-breadcrumb">
-        <span>Notification</span>
+        <span>Artist</span>
         <span>Thông tin chung</span>
         <span>Chi tiết</span>
         </div>
@@ -36,19 +36,16 @@
                     ID: @Html.DisplayFor(model => model.ID)
                 </div>
                 <div >
-                    Title: @Html.DisplayFor(model => model.Title)
+                    Nghệ Sĩ: @Html.DisplayFor(model => model.Name)
                 </div>
                 <div >
-                    Content: @Html.DisplayFor(model => model.Content)
+                    Tiểu sử: @Html.DisplayFor(model => model.Biography)
                 </div>
                 <div >
-                    CreatedBy: @Html.DisplayFor(model => model.CreatedBy)
+                    Ảnh đại diện: <img class="admin-img-review" src="@Url.Content(@Model.AvatarImageURI)" alt="">
                 </div>
                 <div >
-                    Image: <img class="admin-img-review" src="@Url.Content(@Model.NotificationImage)" alt="">
-                </div>
-                <div >
-                    CreatedDate: @Html.DisplayFor(model => model.CreatedDate)
+                    Ngày tạo: @Html.DisplayFor(model => model.CreatedDate)
                 </div>
             </div>
         </div>
@@ -59,16 +56,7 @@
 
         <div class="ht-40"></div>
 
-
-
-
-
-
-
-
-
-
-        <div class="az-footer mg-t-auto">
+   <div class="az-footer mg-t-auto">
         <div class="container">
             <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
         </div><!-- container -->

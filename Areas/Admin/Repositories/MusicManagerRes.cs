@@ -41,7 +41,7 @@ namespace Lyzic.Repositories
         {
             object[] value =
             {
-                MusicManager.Name, MusicManager.Author, MusicManager.Singers, MusicManager.Lyric, MusicManager.MediaImageCoverURI, MusicManager.MediaContentURI, DateTime.Now
+                MusicManager.Name, MusicManager.Author, MusicManager.Singers,MusicManager.Genres, MusicManager.Lyric, MusicManager.MediaImageCoverURI, MusicManager.MediaContentURI, DateTime.Now
             };
 
             SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
@@ -69,6 +69,7 @@ namespace Lyzic.Repositories
                 MusicManager.Name = dr["Name"].ToString();
                 MusicManager.Author = dr["Author"].ToString();
                 MusicManager.Singers = dr["Singers"].ToString();
+                MusicManager.Genres = dr["Genres"].ToString();
                 MusicManager.Lyric = dr["Lyric"].ToString();
                 MusicManager.MediaImageCoverURI = dr["MediaImageCoverURI"].ToString();
                 MusicManager.MediaContentURI = dr["MediaContentURI"].ToString();
@@ -82,7 +83,7 @@ namespace Lyzic.Repositories
         {
             object[] value =
             {
-                MusicManager.ID, MusicManager.Name, MusicManager.Author, MusicManager.Singers, MusicManager.Lyric, MusicManager.MediaImageCoverURI, MusicManager.MediaContentURI, DateTime.Now
+                MusicManager.ID, MusicManager.Name, MusicManager.Author, MusicManager.Singers,MusicManager.Genres, MusicManager.Lyric, MusicManager.MediaImageCoverURI, MusicManager.MediaContentURI, DateTime.Now
             };
 
             SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);

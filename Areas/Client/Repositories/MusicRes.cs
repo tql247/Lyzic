@@ -39,20 +39,6 @@ namespace Lyzic.Repositories
             return lstResult;
         }
          
-        public static bool Insert(Music music)
-        {
-            object[] value =
-            {
-                music.ID, music.Name, music.Author, music.Singers, music.Lyric, music.MediaImageCoverURI, music.MediaContentURI, DateTime.Now
-            };
-
-            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
-            DataTable result = connection.Select("Music_Insert ", value);
-            if (connection.errorCode == 0 && connection.errorMessage == "")
-                return true;
-            return false;
-        }
-
         public static Music Detail(int id)
         {
             object[] value =
@@ -80,32 +66,5 @@ namespace Lyzic.Repositories
             return music;
         }
 
-        public static bool Edit(Music music)
-        {
-            object[] value =
-            {
-                music.ID, music.Name, music.Author, music.Singers, music.Lyric, music.MediaImageCoverURI, music.MediaContentURI, DateTime.Now
-            };
-
-            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
-            DataTable result = connection.Select("Music_Update ", value);
-            if (connection.errorCode == 0 && connection.errorMessage == "")
-                return true;
-            return false;
-        }
-
-        public static bool Delete(int id)
-        {
-            object[] value =
-            {
-                id
-            };
-
-            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
-            DataTable result = connection.Select("Music_Delete ", value);
-            if (connection.errorCode == 0 && connection.errorMessage == "")
-                return true;
-            return false;
-        }
     }
 }

@@ -9,27 +9,17 @@ using Microsoft.AspNetCore.Http;
 
 namespace Lyzic.Models
 {
-    public class MusicManager
+    public class Artist
     {
         public int ID {get; set; }
 
         [Required]
         public string Name {get; set; }
     
-        public string Author {get; set; }
-
-        public string Singers {get; set; }
-        public string Genres {get; set; }
-
-        public string Lyric {get; set; }
-
-        public string MediaImageCoverURI {get; set; }
+        public string Biography {get; set; }
+        public string AvatarImageURI {get; set; }
 
         public IFormFile MediaImageCover {get; set; }
-
-        public string MediaContentURI {get; set; }
-        
-        public IFormFile MediaContent {get; set; }
 
         public DateTime CreatedDate {get; set; }
     }
