@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="~/css/plyr.css">
     <link rel="stylesheet" href="~/css/main.css">
     <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/search.css">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" /> 
 
 
 
@@ -31,10 +33,23 @@
     <script src="~/js/plyr.min.js"></script>
     <script src="~/js/main.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+
+    
+ 
 
     
 </head>
 <body>
+    <style>
+        .ui-autocomplete-loading { background: white url('https://media2.giphy.com/media/3oEjI4sFlp73fvEYgw/200.gif') right center no-repeat; }
+
+        @* .ui-menu .ui-menu-item a{
+            background:red;
+            height:10px;
+            font-size:8px;
+        } *@
+    </style>
     <!-- header -->
     <header class="header">
         <div class="header__content">
@@ -50,11 +65,20 @@
                 <a href="contacts.html">Contacts</a>
             </nav>
 
-            <form action="#" class="header__search">
-                <input type="text" placeholder="Artist, track or podcast">
+            <form action="#" class="header__search" autocomplete='off'>
+                @* <input type="text" placeholder="Artist, track or podcast"> *@
+                @Html.TextBox("searchTerm",null, new { id = "txtSearch",placeholder="Artist, track or podcast"})
                 <button type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/></svg></button>
                 <button type="button" class="close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"/></svg></button>
+
+                <div class="suggest__box">
+                    @* <li><a href="" class="suggest__link">Duy</a></li> *@
+                </div>
             </form>
+
+            @* <div class="form-group">
+                SEARCH:
+            </div> *@
 
             <div class="header__actions">
                 <div class="header__action header__action--search">
@@ -424,4 +448,5 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+ <script src="~/js/search.js"></script>
 </html>

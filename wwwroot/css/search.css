@@ -1,0 +1,45 @@
+input#txtSearch {
+	position: relative;
+}
+
+.header__search.active .suggest__box {
+	display: block;
+}
+
+.suggest__box {
+	position: absolute;
+	width: 100%;
+	top: calc(100% - 15px);
+	background-color: white;
+	border-radius: 12px;
+	background-color: #222227;
+	color: white;
+	display: none;
+}
+
+.suggest__box li {
+	/* margin: 8px 0; */
+	list-style: none;
+	user-select: none;
+	cursor: pointer;
+	overflow-y: auto;
+}
+.suggest__box li .suggest__link {
+	padding: 8px 0 8px 20px;
+	display: block;
+	color: white;
+}
+
+.suggest__box li:hover {
+	background-color: #2d2d31;
+}
+
+.suggest__box li:first-child {
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+}
+
+.suggest__box li:last-child {
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+}

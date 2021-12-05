@@ -6,6 +6,12 @@ using Lyzic.Repositories;
 using Lyzic.Models;
 using System;
 using Microsoft.AspNetCore.Hosting;
+using System.Collections.Generic;
+using CAIT.SQLHelper;
+using System.Data;
+using Lyzic.Const;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Lyzic.Controllers
 {
@@ -13,19 +19,18 @@ namespace Lyzic.Controllers
     {
         private readonly ILogger<ArtistController> _logger;
         private readonly IWebHostEnvironment _environment;
-        public ArtistController(ILogger<ArtistController> logger,  IWebHostEnvironment env) 
-        {  
+        public ArtistController(ILogger<ArtistController> logger, IWebHostEnvironment env)
+        {
             _logger = logger;
             _environment = env;
         }
-        
+
 
         public IActionResult Index()
         {
             var listArtist = ArtistRes.GetAll();
             return View(listArtist);
         }
-        
         // GET: ArtistManagerController/Details
         public ActionResult Details(int id)
         {
