@@ -1,3 +1,9 @@
+@model Lyzic.Models.AccountManager
+
+@{
+    ViewData["Title"] = "Sign in";
+}
+
 
 <!-- main content -->
 <main class="main">
@@ -17,17 +23,21 @@
                 <div class="sign">
                     <div class="sign__content">
                         <!-- authorization form -->
-                        <form action="#" class="sign__form">
+                        <form asp-controller="Token" asp-action="Login" class="sign__form">
                             <a href="index.html" class="sign__logo">
                                 <img src="img/logo.svg" alt="">
                             </a>
 
                             <div class="sign__group">
-                                <input type="text" class="sign__input" placeholder="Email">
+                                <input
+                                asp-for="UserName" type="text" class="sign__input" placeholder="Email"
+                                >
                             </div>
 
                             <div class="sign__group">
-                                <input type="password" class="sign__input" placeholder="Password">
+                                <input type="password" 
+                                asp-for="PassWord"
+                                class="sign__input" placeholder="Password">
                             </div>
 
                             <div class="sign__group sign__group--checkbox">
@@ -35,7 +45,7 @@
                                 <label for="remember">Remember Me</label>
                             </div>
                             
-                            <button class="sign__btn" type="button">Sign in</button>
+                            <button type="submit" class="sign__btn" type="button">Sign in</button>
 
                             <span class="sign__delimiter">or</span>
 
