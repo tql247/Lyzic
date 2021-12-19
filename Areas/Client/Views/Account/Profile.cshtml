@@ -1,9 +1,7 @@
-
-
 @model Lyzic.Models.Account
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Profile";
 }
 	
 
@@ -34,11 +32,11 @@
                 <div class="profile">
                     <div class="profile__user">
                         <div class="profile__avatar">
-                            <img src="img/avatar.svg" alt="">
+                            <img src="../img/avatar.svg" alt="">
                         </div>
                         <div class="profile__meta">
-                            <h3>John Doe</h3>
-                            <span>Volna ID: 11104</span>
+                            <h3>@Html.DisplayFor(model => model.FullName)</h3>
+                            <span>Lyzic ID: @Html.DisplayFor(model => model.ID)</span>
                         </div>
                     </div>
 
@@ -50,10 +48,10 @@
                     </ul>
                     <!-- end tabs nav -->
 
-                    <button class="profile__logout" type="button">
+                    <a asp-controller="Token" asp-action="Logout" class="profile__logout" type="button">
                         <span>Sign out</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z"/></svg>
-                    </button>
+                    </a>
                 </div>
 
                 <!-- content tabs -->
@@ -465,8 +463,8 @@
                                         
                                         <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                             <div class="sign__group">
-                                                <label class="sign__label" for="username">Login</label>
-                                                <input id="username" type="text" name="username" class="sign__input" placeholder="">
+                                                <label class="sign__label" for="username">Username</label>
+                                                <input id="username" type="text" readonly="readonly" name="username" value="@(Model.UserName)" class="sign__input" placeholder="">
                                             </div>
                                         </div>
 
@@ -479,15 +477,8 @@
 
                                         <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                             <div class="sign__group">
-                                                <label class="sign__label" for="firstname">First name</label>
-                                                <input id="firstname" type="text" name="firstname" class="sign__input" placeholder="John">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-6 col-lg-12 col-xl-6">
-                                            <div class="sign__group">
-                                                <label class="sign__label" for="lastname">Last name</label>
-                                                <input id="lastname" type="text" name="lastname" class="sign__input" placeholder="Doe">
+                                                <label class="sign__label" for="firstname">FullName</label>
+                                                <input id="firstname" type="text" value="@Model.FullName" name="firstname" class="sign__input" placeholder="John">
                                             </div>
                                         </div>
 
@@ -509,13 +500,6 @@
 
                                         <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                             <div class="sign__group">
-                                                <label class="sign__label" for="oldpass">Old password</label>
-                                                <input id="oldpass" type="password" name="oldpass" class="sign__input">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-6 col-lg-12 col-xl-6">
-                                            <div class="sign__group">
                                                 <label class="sign__label" for="newpass">New password</label>
                                                 <input id="newpass" type="password" name="newpass" class="sign__input">
                                             </div>
@@ -528,15 +512,11 @@
                                             </div>
                                         </div>
 
+                                        
                                         <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                             <div class="sign__group">
-                                                <label class="sign__label" for="select">Select</label>
-                                                <select name="select" id="select" class="sign__select">
-                                                    <option value="0">Option</option>
-                                                    <option value="1">Option 2</option>
-                                                    <option value="2">Option 3</option>
-                                                    <option value="3">Option 4</option>
-                                                </select>
+                                                <label class="sign__label" for="oldpass">Old password</label>
+                                                <input id="oldpass" type="password" name="oldpass" class="sign__input">
                                             </div>
                                         </div>
 

@@ -58,6 +58,7 @@ namespace Lyzic.Controllers
 
 
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+                // Session["loggedUserId"] = account.ID.ToString();
 
                 HttpContext.Session.SetString("JWToken", tokenString);
 

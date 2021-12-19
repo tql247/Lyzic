@@ -26,11 +26,8 @@ namespace Lyzic.Controllers
         public IActionResult Index()
         {
             var JWToken = HttpContext.Session.GetString("JWToken");
-            // Console.WriteLine(JWToken);
-
             var identity = HttpContext.User.Identity as ClaimsIdentity;
 
-            Console.WriteLine(identity);
             try
             {
                 if (identity != null)
@@ -46,13 +43,6 @@ namespace Lyzic.Controllers
             {
                 return View();
             }
-            // if (identity != null)
-            // {
-            //     Console.WriteLine("AccountID");
-            //     Console.WriteLine(identity.FindFirst("UserName").Value);
-            //     Console.WriteLine(identity.FindFirst("AccountID").Value);
-            // }
-            // return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
