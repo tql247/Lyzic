@@ -74,8 +74,6 @@ namespace Lyzic.Controllers
                 JSONString = JsonConvert.SerializeObject(result);
             }
 
-            // return JSONString;
-
             return JSONString;
         }
     }

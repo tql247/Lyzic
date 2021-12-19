@@ -39,7 +39,7 @@ namespace Lyzic.Controllers
                 role = dbAccount.RoleName;
             }
 
-            if (account.UserName == "admin" && account.PassWord == "123456")
+            if (account.RoleName != "admin")
             {
                 var claims = new[]
                 {
@@ -48,6 +48,7 @@ namespace Lyzic.Controllers
                     new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
                     new Claim("RoleName", role),
                     new Claim("AccountID", dbAccount.ID.ToString()),
+                    new Claim("UserName", dbAccount.UserName),
                 };
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));

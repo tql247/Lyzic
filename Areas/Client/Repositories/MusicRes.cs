@@ -16,7 +16,7 @@ namespace Lyzic.Repositories
             object[] value = { };
             SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
             DataTable result = connection.Select("Music_GetAll", value);
-            
+
             List<Music> lstResult = new List<Music>();
             if (connection.errorCode == 0 && result.Rows.Count > 0)
             {
@@ -38,8 +38,8 @@ namespace Lyzic.Repositories
 
             return lstResult;
         }
-         
-        public static Music Detail(int id)
+
+        public static (Music, List<Comment>) Detail(int id)
         {
             object[] value =
             {
@@ -48,7 +48,9 @@ namespace Lyzic.Repositories
 
             SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
             DataTable result = connection.Select("Music_Detail ", value);
+            DataTable commentsTable = connection.Select("Load_Comment ", value);
             Music music = new Music();
+            List<Comment> commentList = new List<Comment>();
 
             if (connection.errorCode == 0 && result.Rows.Count > 0)
             {
@@ -63,7 +65,34 @@ namespace Lyzic.Repositories
                 music.CreatedDate = string.IsNullOrEmpty(dr["CreatedDate"].ToString()) ? default : DateTime.Parse(dr["CreatedDate"].ToString());
             }
 
-            return music;
+            if (connection.errorCode == 0 && commentsTable.Rows.Count > 0)
+            {
+                foreach (DataRow dr in commentsTable.Rows)
+                {
+                    Comment comment = new Comment();
+                    object[] accountID =
+                    {
+                        dr["AccountID"].ToString()
+                    };
+
+                    DataTable getUserName = connection.Select("Account_Detail", accountID);
+                    if (connection.errorCode == 0 && getUserName.Rows.Count > 0)
+                    {
+                        var user = getUserName.Rows[0];
+                        comment.UserName = user["UserName"].ToString();
+                    }
+                    else
+                    {
+                        comment.UserName = "Incognito";
+                    }
+
+                    comment.Content = dr["Content"].ToString();
+
+                    commentList.Add(comment);
+                }
+            }
+
+            return (music, commentList);
         }
 
     }

@@ -88,22 +88,4 @@ $(document).ready(function () {
 			searchWrapper.classList.remove("active");
 		}
 	});
-	// $("#txtSearch").autocomplete({
-	// 	source: function (request, response) {
-	// 		$.ajax({
-	// 			url: "/Artist/GetArtist",
-	// 			dataType: "json",
-	// 			data: {
-	// 				term: request.term,
-	// 			},
-	// 			success: function (result) {
-	// 				for (var k in result) {
-	// 					console.log(result[k]);
-	// 				}
-	// 			},
-	// 		});
-	// 	},
-
-	// 	minLength: 1,
-	// });
 });

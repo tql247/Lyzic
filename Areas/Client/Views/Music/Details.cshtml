@@ -1,4 +1,5 @@
-@model Lyzic.Models.Music
+@* @using MultipleModelInOneView; *@
+@model dynamic
 
 @{
     ViewData["Title"] = "Create";
@@ -23,7 +24,8 @@
 				<div class="col-12">
 					<div class="main__title main__title--page">
 						<h1>
-							@Html.DisplayFor(model => model.Name)
+							@Model.Music.Name
+							@* @Html.DisplayFor() *@
 						</h1>
 					</div>
 				</div>
@@ -33,15 +35,15 @@
 					<div class="release">
 						<div class="release__content">
 							<div class="release__cover">
-								<img src="@Url.Content(@Model.MediaImageCoverURI)" alt="">
+								<img src="@Url.Content(@Model.Music.MediaImageCoverURI)" alt="">
 							</div>
 							<div class="release__stat">
-								<a class="download-media" download href="@Url.Content(Model.MediaContentURI)">
+								<a class="download-media" download href="@Url.Content(Model.Music.MediaContentURI)">
 									<span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"></path></svg> download</span>
 								</a>
 								<span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,13.18V11A8,8,0,0,0,4,11v2.18A3,3,0,0,0,2,16v2a3,3,0,0,0,3,3H8a1,1,0,0,0,1-1V14a1,1,0,0,0-1-1H6V11a6,6,0,0,1,12,0v2H16a1,1,0,0,0-1,1v6a1,1,0,0,0,1,1h3a3,3,0,0,0,3-3V16A3,3,0,0,0,20,13.18ZM7,15v4H5a1,1,0,0,1-1-1V16a1,1,0,0,1,1-1Zm13,3a1,1,0,0,1-1,1H17V15h2a1,1,0,0,1,1,1Z"/></svg> 19 503</span>
 							</div>
-							<a href="@Url.Content(Model.MediaContentURI)" data-song="@Model.Name" data-artist="@Model.Singers" class="release__buy open-modal play-instance">Play now</a>
+							<a href="@Url.Content(Model.Music.MediaContentURI)" data-song="@Model.Music.Name" data-artist="@Model.Music.Singers" class="release__buy open-modal play-instance">Play now</a>
 						</div>
 						
 						<div class="release__list">
@@ -237,12 +239,12 @@
 						<div class="article__content">
 							<h4>About this song</h4>
 
-							<p>Authors: @Html.DisplayFor(model => model.Author)</p>
-							<p>Singer: @Html.DisplayFor(model => model.Singers)</p>
+							<p>Authors:@Model.Music.Author</p>
+							<p>Singer: @Model.Music.Singers</p>
 							<p>Lyric</p>
 
 
-							<p>@Html.DisplayFor(model => model.Lyric)</p>
+							<p>@Model.Music.Lyric</p>
 						</div>
 						<!-- end article content -->
 
@@ -258,10 +260,35 @@
 						<div class="comments">
 							<div class="comments__title">
 								<h4>Comments</h4>
-								<span>3</span>
+								<!-- Show comment count -->
+								@if (Model.CommentList.Count > 0)
+								{
+									<span>@Model.CommentList.Count</span>
+								}
 							</div>
 
-							<ul class="comments__list">
+							<!-- Create and load list comment -->
+							<div class="comment__load">
+								@if (Model.CommentList.Count > 0)
+								{
+									<ul class="comments__list">
+									@foreach (var item in Model.CommentList) {
+										<li class="comments__item">
+											<div class="comments__autor">
+												<img class="comments__avatar" src="~/img/avatar.svg" alt="">
+												<span class="comments__name">@item.UserName</span>
+												<span class="comments__time">30.08.2021, 17:53</span>
+											</div>
+											<p class="comments__text">@item.Content</p>
+										</li>
+									}
+									</ul>
+								}
+							</div>
+
+
+							<!-- Old comment template if you want to re-use -->
+							@* <ul class="comments__list">
 								<li class="comments__item">
 									<div class="comments__autor">
 										<img class="comments__avatar" src="~/img/avatar.svg" alt="">
@@ -318,13 +345,14 @@
 										<button type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.3,10.75A1,1,0,1,0,9,9.25,3,3,0,1,1,7,4,3,3,0,0,1,9.23,5H8A1,1,0,0,0,8,7h3a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0h0a5,5,0,1,0,.3,7.75ZM19,6H15a1,1,0,0,0,0,2h4a1,1,0,0,1,1,1v9.72l-1.57-1.45a1,1,0,0,0-.68-.27H9a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v1a3,3,0,0,0,3,3h8.36l3,2.73A1,1,0,0,0,21,22a1.1,1.1,0,0,0,.4-.08A1,1,0,0,0,22,21V9A3,3,0,0,0,19,6Z"/></svg><span>Quote</span></button>
 									</div>
 								</li>
-							</ul>
+							</ul> *@
 
-							<form action="#" class="comments__form">
+							<form id="commentForm" action="#" class="comments__form">
 								<div class="sign__group">
-									<textarea id="text" name="text" class="sign__textarea" placeholder="Add comment"></textarea>
+									<input type="hidden" id="idMusic" name="idMusic" value="@Model.Music.ID">
+									<textarea id="commentContent" name="commentContent" class="sign__textarea" placeholder="Add comment"></textarea>
 								</div>
-								<button type="button" class="sign__btn">Send</button>
+								<button type="submit" class="sign__btn">Send</button>
 							</form>
 						</div>
 						<!-- end comments -->

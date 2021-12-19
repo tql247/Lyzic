@@ -6,6 +6,7 @@ using Lyzic.Repositories;
 using Lyzic.Models;
 using System;
 using Microsoft.AspNetCore.Hosting;
+using System.Dynamic;
 
 namespace Lyzic.Controllers
 {
@@ -13,24 +14,31 @@ namespace Lyzic.Controllers
     {
         private readonly ILogger<MusicController> _logger;
         private readonly IWebHostEnvironment _environment;
-        public MusicController(ILogger<MusicController> logger,  IWebHostEnvironment env) 
-        {  
+        public MusicController(ILogger<MusicController> logger, IWebHostEnvironment env)
+        {
             _logger = logger;
             _environment = env;
         }
-        
+
 
         public IActionResult Index()
         {
             var listMusic = MusicRes.GetAll();
             return View(listMusic);
         }
-        
+
         // GET: MusicManagerController/Details
         public ActionResult Details(int id)
         {
-            var music = MusicRes.Detail(id);
-            return View(music);
+            // Get music and list comment
+            var (music, commentList) = MusicRes.Detail(id);
+
+            dynamic multipleModel = new ExpandoObject();
+            multipleModel.Music = music;
+            multipleModel.CommentList = commentList.ToList();
+
+            // Return multiple model(Music, List<Comment>) to view
+            return View(multipleModel);
         }
     }
 }
