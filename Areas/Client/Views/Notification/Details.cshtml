@@ -32,9 +32,17 @@
 
                         <h1>@Html.DisplayFor(model => model.Title)</h1>
 
-                        <p>
-                           @Html.DisplayFor(model => model.Content)
-                        </p>
+                        <div style="color: white">
+                           @* @Html.DisplayFor(model => model.Content) *@
+                           @{
+                               string[] ps = Model.Content.Split("<br>");
+
+                               foreach (var p in ps)
+                                {
+                                    <p> @p </p>
+                                }
+                           }
+                        </div>
                     </div>
                     <!-- end article content -->
 
