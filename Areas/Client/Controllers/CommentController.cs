@@ -11,6 +11,14 @@ using CAIT.SQLHelper;
 using Lyzic.Const;
 using System.Data;
 
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+
 namespace Lyzic.Controllers
 {
     public class CommentController : Controller
@@ -26,9 +34,30 @@ namespace Lyzic.Controllers
 
         public string InsertComment(int idMusic, string content)
         {
+            var userID =  6;
+            
+            var JWToken = HttpContext.Session.GetString("JWToken");
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+
+            if (identity != null)
+            {
+                try {
+                    Console.WriteLine("AccountID");
+                    Console.WriteLine(identity.FindFirst("UserName").Value);
+                    Console.WriteLine(identity.FindFirst("AccountID").Value);
+                    userID = Int32.Parse(identity.FindFirst("AccountID").Value);
+                } catch (System.Exception) {
+
+                }
+            }
+
+            Console.WriteLine("AccountID");
+            Console.WriteLine(userID);
+
+
+
             object[] searchChar = { 
-                // Edit account id (4)
-                4,
+                userID,
                 idMusic,
                 content
             };
