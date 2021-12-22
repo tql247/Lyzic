@@ -43,7 +43,7 @@
                     <!-- tabs nav -->
                     <ul class="nav nav-tabs profile__tabs" id="profile__tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false">Settings</a>
+                            <a class="nav-link active" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false">Settings</a>
                         </li>
                     </ul>
                     <!-- end tabs nav -->
@@ -454,8 +454,8 @@
                     <div class="tab-pane fade active show" id="tab-4" role="tabpanel">
                         <div class="row row--grid">
                             <!-- details form -->
-                            <div class="col-12 col-lg-6">
-                                <form action="#" class="sign__form sign__form--profile">
+                            <div class="col-12 col-lg-6 profile-name">
+                                <form action="#" class="sign__form sign__form--profile sign__form--profile-name" id="updateNameForm">
                                     <div class="row">
                                         <div class="col-12">
                                             <h4 class="sign__title">Profile details</h4>
@@ -463,8 +463,9 @@
                                         
                                         <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                             <div class="sign__group">
+                                                <input type="hidden" id="userID" name="userID" value="@(Model.ID)">
                                                 <label class="sign__label" for="username">Username</label>
-                                                <input id="username" type="text" readonly="readonly" name="username" value="@(Model.UserName)" class="sign__input" placeholder="">
+                                                <input id="username" type="text" readonly="readonly" name="username" value="@(Model.UserName)" class="sign__input" >
                                             </div>
                                         </div>
 
@@ -476,14 +477,14 @@
                                         </div> *@
 
                                         <div class="col-12 col-md-6 col-lg-12 col-xl-6">
-                                            <div class="sign__group">
+                                            <div class="sign__group sign__group--name">
                                                 <label class="sign__label" for="firstname">FullName</label>
-                                                <input id="firstname" type="text" value="@Model.FullName" name="firstname" class="sign__input" placeholder="John">
+                                                <input autocomplete="off" id="firstname" type="text"  name="firstname" class="sign__input" placeholder="Enter your name">
                                             </div>
                                         </div>
 
                                         <div class="col-12">
-                                            <button class="sign__btn" type="button">Save</button>
+                                            <button id="save-btn" class="sign__btn" type="submit">Save</button>
                                         </div>
                                     </div>
                                 </form>
@@ -492,7 +493,7 @@
 
                             <!-- password form -->
                             <div class="col-12 col-lg-6">
-                                <form action="#" class="sign__form sign__form--profile">
+                                <form action="#" class="sign__form sign__form--profile" id="updatePasswordForm">
                                     <div class="row">
                                         <div class="col-12">
                                             <h4 class="sign__title">Change password</h4>
@@ -500,6 +501,7 @@
 
                                         <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                             <div class="sign__group">
+                                                <input id="usernameHidden" type="hidden" name="username" value="@(Model.UserName)" class="sign__input" >
                                                 <label class="sign__label" for="newpass">New password</label>
                                                 <input id="newpass" type="password" name="newpass" class="sign__input">
                                             </div>
@@ -521,7 +523,7 @@
                                         </div>
 
                                         <div class="col-12">
-                                            <button class="sign__btn" type="button">Change</button>
+                                            <button class="sign__btn" type="submit">Change</button>
                                         </div>
                                     </div>
                                 </form>
@@ -536,3 +538,6 @@
     </div>
 </main>
 <!-- end main content -->
+
+<script src="~/js/update-user-info.js"></script>
+

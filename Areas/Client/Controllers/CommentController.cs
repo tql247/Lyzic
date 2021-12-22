@@ -10,8 +10,6 @@ using System.Dynamic;
 using CAIT.SQLHelper;
 using Lyzic.Const;
 using System.Data;
-
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -34,19 +32,22 @@ namespace Lyzic.Controllers
 
         public string InsertComment(int idMusic, string content)
         {
-            var userID =  6;
-            
+            var userID = 6;
+
             var JWToken = HttpContext.Session.GetString("JWToken");
             var identity = HttpContext.User.Identity as ClaimsIdentity;
 
             if (identity != null)
             {
-                try {
+                try
+                {
                     Console.WriteLine("AccountID");
                     Console.WriteLine(identity.FindFirst("UserName").Value);
                     Console.WriteLine(identity.FindFirst("AccountID").Value);
                     userID = Int32.Parse(identity.FindFirst("AccountID").Value);
-                } catch (System.Exception) {
+                }
+                catch (System.Exception)
+                {
 
                 }
             }
@@ -56,7 +57,7 @@ namespace Lyzic.Controllers
 
 
 
-            object[] searchChar = { 
+            object[] searchChar = {
                 userID,
                 idMusic,
                 content

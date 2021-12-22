@@ -5,7 +5,6 @@ $(document).ready(function () {
 		var dataComment = document.getElementById("commentContent").value;
 		var idMusic = document.getElementById("idMusic").value;
 
-		console.log(idMusic);
 		$.ajaxSetup({
 			cache: false,
 		});
