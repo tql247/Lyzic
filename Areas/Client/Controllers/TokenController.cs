@@ -1,5 +1,6 @@
 using Lyzic.Models;
 using Lyzic.Repositories;
+using Lyzic.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -10,6 +11,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Hosting;
 using System.Threading.Tasks;
 
 namespace Lyzic.Controllers
@@ -32,11 +35,10 @@ namespace Lyzic.Controllers
         {
             AccountManager dbAccount = AccountManagerRes.CheckAccount(account.UserName, account.PassWord);
             string role = "";
-            if (dbAccount != null)
+            // string msg = "Lỗi đăng nhập, vui lòng thử lại";
+            if (dbAccount == null)
             {
-                Console.WriteLine("dbAccount.RoleName");
-                Console.WriteLine(dbAccount.RoleName);
-                role = dbAccount.RoleName;
+                return Redirect("/Account/SignIn");
             }
 
             if (account.RoleName != "admin")
