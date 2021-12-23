@@ -44,6 +44,11 @@
                                 <input id="remember" name="remember" type="checkbox" checked="checked">
                                 <label for="remember">Remember Me</label>
                             </div>
+
+                            @if (TempData["message"] != null)
+                            {
+                                <p class="error-msg">@TempData["message"]</p>
+                            }
                                                         
                             <button type="submit" class="sign__btn" type="button">Sign in</button>
 

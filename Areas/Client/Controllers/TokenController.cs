@@ -38,7 +38,7 @@ namespace Lyzic.Controllers
             // string msg = "Lỗi đăng nhập, vui lòng thử lại";
             if (dbAccount == null)
             {
-                return Redirect("/Account/SignIn");
+                return Redirect("/Account/SignInError");
             }
 
             if (account.RoleName != "admin")

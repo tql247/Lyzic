@@ -170,6 +170,12 @@ namespace Lyzic.Controllers
             return View();
         }
 
+        public IActionResult SignInError()
+        {
+            TempData["message"] = "Lỗi đăng nhập, vui lòng thử lại!";
+            return Redirect("SignIn");
+        }
+
         public IActionResult SignUp()
         {
             return View();
