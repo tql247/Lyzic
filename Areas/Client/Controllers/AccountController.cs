@@ -15,6 +15,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using CAIT.SQLHelper;
+using System.Data;
+using Lyzic.Const;
 
 namespace Lyzic.Controllers
 {
@@ -69,14 +72,108 @@ namespace Lyzic.Controllers
             {
                 return Redirect("/Account/SignIn");
             }
-            // lay ra thong tin AccountID tu jwt
-            // var account = AccountRes.Profile(1);
-            // return View(account);
+        }
+
+        class JsonData
+        {
+            public string icon { get; set; }
+            public string title { get; set; }
+        }
+
+        public JsonResult UpdateNameUser(int userID, string name)
+        {
+            object[] searchChar = {
+                userID,
+                name
+            };
+
+            var icon = "error";
+            var title = "Thất bại, vui lòng thử lại!";
+
+            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
+            DataTable result = connection.Select("Account_Update_Name ", searchChar);
+            if (connection.errorCode == 0 && connection.errorMessage == "")
+            {
+                icon = "success";
+                title = "Đã thay đổi tên thành công!";
+            }
+
+            var jsonData = new JsonData()
+            {
+                icon = icon,
+                title = title
+            };
+
+            return Json(jsonData);
+        }
+
+        public JsonResult UpdatePasswordUser(int userID, string newpass, string confirmpass, string oldpass)
+        {
+            object[] searchChar = {
+                userID
+            };
+
+            var icon = "error";
+            var title = "Đã có lỗi xảy ra, vui lòng thử lại!";
+
+            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
+            DataTable result = connection.Select("Account_CheckPassword", searchChar);
+            AccountManager AccountManager = new AccountManager();
+
+            if (connection.errorCode == 0 && result.Rows.Count > 0)
+            {
+                var dr = result.Rows[0];
+                AccountManager.PassWord = dr["PassWord"].ToString();
+
+                // If old password equal current password user
+                if (AccountManager.PassWord == oldpass)
+                {
+                    if (newpass == confirmpass)
+                    {
+                        object[] value = {
+                            userID,
+                            newpass
+                        };
+
+                        connection = new SQLCommand(ConstValue.ConnectionString);
+                        result = connection.Select("Account_Update_Password ", value);
+                        if (connection.errorCode == 0 && connection.errorMessage == "")
+                        {
+                            icon = "success";
+                            title = "Đã thay đổi mật khẩu thành công!";
+                        }
+                    }
+                    else
+                    {
+                        icon = "error";
+                        title = "Mật khẩu không trùng khớp, vui lòng thử lại!";
+                    }
+                }
+                else
+                {
+                    icon = "error";
+                    title = "Mật khẩu không đúng, vui lòng thử lại!";
+                }
+            }
+
+            var jsonData = new JsonData()
+            {
+                icon = icon,
+                title = title
+            };
+
+            return Json(jsonData);
         }
 
         public IActionResult SignIn()
         {
             return View();
+        }
+
+        public IActionResult SignInError()
+        {
+            TempData["message"] = "Lỗi đăng nhập, vui lòng thử lại!";
+            return Redirect("SignIn");
         }
 
         public IActionResult SignUp()
