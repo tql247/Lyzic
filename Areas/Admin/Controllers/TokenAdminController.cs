@@ -69,7 +69,7 @@ namespace Lyzic.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return Redirect("/");
+            return Redirect("/admin");
         }
 
     }

@@ -6,6 +6,16 @@ using Lyzic.Repositories;
 using Lyzic.Models;
 using System;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace Lyzic.Controllers
 {
@@ -20,6 +30,7 @@ namespace Lyzic.Controllers
         }
         
 
+        [Authorize]
         public IActionResult Index()
         {
             var listMusic = MusicManagerRes.GetAll();
