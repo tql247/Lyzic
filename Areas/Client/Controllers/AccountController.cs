@@ -31,42 +31,26 @@ namespace Lyzic.Controllers
             _environment = env;
         }
 
-        public string Index()
-        {
-            // this.HttpContext
-            // this.Request
-            // this.Response
-            // this.RouteData
-            // this.User
-            // this.ModelState
-            // this.ViewData
-            // this.ViewBag
-            // this.Url
-            // this.TempData
-            _logger.LogInformation("Index Action");
-
-
-            return "I'm there";
-        }
-
         // GET: AccountController/Details
+        // Lấy thông tin của user
         public ActionResult Profile(int id)
         {
-
+            // Lấy ra token từ session
             var JWToken = HttpContext.Session.GetString("JWToken");
             // Console.WriteLine(JWToken);
 
+            // lấy ra identity để kiểm tra xác thực
             var identity = HttpContext.User.Identity as ClaimsIdentity;
             try
             {
                 if (identity != null)
                 {
-                    Console.WriteLine("AccountID");
-                    Console.WriteLine(identity.FindFirst("UserName").Value);
-                    Console.WriteLine(identity.FindFirst("AccountID").Value);
+                    // Lấy ID tài khoản được lưu trong session và tìm kiếM trong database
+                    var account = AccountRes.Profile(Int32.Parse(identity.FindFirst("AccountID").Value));
+                    return View(account);
                 }
-                var account = AccountRes.Profile(Int32.Parse(identity.FindFirst("AccountID").Value));
-                return View(account);
+
+                return Redirect("/Account/SignIn");
             }
             catch (System.Exception)
             {
@@ -80,6 +64,7 @@ namespace Lyzic.Controllers
             public string title { get; set; }
         }
 
+        // Dùng để cập nhật thông tin user
         public JsonResult UpdateNameUser(int userID, string name)
         {
             object[] searchChar = {
@@ -107,6 +92,7 @@ namespace Lyzic.Controllers
             return Json(jsonData);
         }
 
+        // Dùng để cập nhật mật khẩu của user
         public JsonResult UpdatePasswordUser(int userID, string newpass, string confirmpass, string oldpass)
         {
             object[] searchChar = {
@@ -165,21 +151,34 @@ namespace Lyzic.Controllers
             return Json(jsonData);
         }
 
+        // Trả về view đăng nhập
         public IActionResult SignIn()
         {
             return View();
         }
 
+        // Trả về thông báo đăng nhập lỗi
         public IActionResult SignInError()
         {
             TempData["message"] = "Lỗi đăng nhập, vui lòng thử lại!";
             return Redirect("SignIn");
         }
 
+        // Trang đăng ký tài khoản
         public IActionResult SignUp()
         {
             return View();
         }
 
+        // Submit tài khoản mới muốn đăng ký
+        [HttpPost]
+        public IActionResult SignUp(Account acc) {
+            if (AccountRes.Insert(acc)) {
+                TempData["message"] = "Đăng ký tài khoản thành công!";
+            } else {
+                TempData["message"] = "Đăng ký tài khoản thất bại, vui lòng thử lại!";
+            }
+            return Redirect("SignIn");
+        }
     }
 }

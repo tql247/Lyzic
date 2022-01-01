@@ -1,4 +1,8 @@
+@model Lyzic.Models.AccountManager
 
+@{
+    ViewData["Title"] = "Sign up";
+}
 	<!-- main content -->
 	<main class="main">
 		<div class="container-fluid">
@@ -16,21 +20,21 @@
 				<div class="col-12">
 					<div class="sign">
 						<div class="sign__content">
-							<form action="#" class="sign__form">
+							<form asp-action="SignUp" class="sign__form">
 								<a href="index.html" class="sign__logo">
 									<img src="img/logo.svg" alt="">
 								</a>
 
 								<div class="sign__group">
-									<input type="text" class="sign__input" placeholder="Fullname">
+									<input type="text" class="sign__input" placeholder="Fullname" asp-for="FullName">
 								</div>
 
 								<div class="sign__group">
-									<input type="text" class="sign__input" placeholder="Username">
+									<input type="text" class="sign__input" placeholder="Username" asp-for="UserName">
 								</div>
 
 								<div class="sign__group">
-									<input type="password" class="sign__input" placeholder="Password">
+									<input type="password" class="sign__input" placeholder="Password" asp-for="PassWord">>
 								</div>
 
 								<div class="sign__group sign__group--checkbox">
@@ -38,7 +42,7 @@
 									<label for="remember">I agree to the <a href="privacy.html">Privacy Policy</a></label>
 								</div>
 								
-								<button class="sign__btn" type="button">Sign up</button>
+								<button class="sign__btn" type="submit">Sign up</button>
 
 								<span class="sign__delimiter">or</span>
 
