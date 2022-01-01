@@ -29,7 +29,7 @@ namespace Lyzic.Controllers
 
         }
 
-
+        // Trả và lưu jwt vào session
         [HttpPost]
         public IActionResult Login(Account account)
         {

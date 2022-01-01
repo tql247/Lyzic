@@ -20,7 +20,7 @@ namespace Lyzic.Controllers
             _environment = env;
         }
 
-
+        // Trả về danh sách âm nhạc
         public IActionResult Index()
         {
             var listMusic = MusicRes.GetAll();

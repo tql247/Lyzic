@@ -29,11 +29,11 @@ namespace Lyzic.Controllers
             _environment = env;
         }
 
-
+        // Thêm bình luận
         public string InsertComment(int idMusic, string content)
         {
+            // Lấy thông tin user từ bình luận
             var userID = 6;
-
             var JWToken = HttpContext.Session.GetString("JWToken");
             var identity = HttpContext.User.Identity as ClaimsIdentity;
 
@@ -41,9 +41,6 @@ namespace Lyzic.Controllers
             {
                 try
                 {
-                    Console.WriteLine("AccountID");
-                    Console.WriteLine(identity.FindFirst("UserName").Value);
-                    Console.WriteLine(identity.FindFirst("AccountID").Value);
                     userID = Int32.Parse(identity.FindFirst("AccountID").Value);
                 }
                 catch (System.Exception)
@@ -51,11 +48,6 @@ namespace Lyzic.Controllers
 
                 }
             }
-
-            Console.WriteLine("AccountID");
-            Console.WriteLine(userID);
-
-
 
             object[] searchChar = {
                 userID,

@@ -23,6 +23,7 @@ namespace Lyzic.Controllers
             _logger = logger;
         }
 
+        // Trả về trang chủ
         public IActionResult Index()
         {
             var JWToken = HttpContext.Session.GetString("JWToken");
@@ -32,12 +33,10 @@ namespace Lyzic.Controllers
             {
                 if (identity != null)
                 {
-                    Console.WriteLine("AccountID");
-                    Console.WriteLine(identity.FindFirst("UserName").Value);
-                    Console.WriteLine(identity.FindFirst("AccountID").Value);
+                    var account = AccountRes.Profile(1);
+                    return View(account);
                 }
-                var account = AccountRes.Profile(1);
-                return View(account);
+                return View();
             }
             catch (System.Exception)
             {

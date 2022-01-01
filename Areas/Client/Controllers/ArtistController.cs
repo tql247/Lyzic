@@ -25,13 +25,15 @@ namespace Lyzic.Controllers
             _environment = env;
         }
 
-
+        // Trả về trang danh sách nghệ sĩ
         public IActionResult Index()
         {
             var listArtist = ArtistRes.GetAll();
             return View(listArtist);
         }
+
         // GET: ArtistManagerController/Details
+        // Xem chi tiết nghệ sĩ
         public ActionResult Details(int id)
         {
             var music = ArtistRes.Detail(id);

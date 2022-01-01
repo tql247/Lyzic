@@ -25,6 +25,7 @@ namespace Lyzic.Controllers
             _environment = env;
         }
 
+        // Tìm kiếm nghệ sĩ
         public string SearchArtist(string term)
         {
             object[] searchChar = { term };
@@ -52,6 +53,7 @@ namespace Lyzic.Controllers
             return JSONString;
         }
 
+        // Tìm kiếm ca nhạc
         public string SearchMusic(string term)
         {
             object[] searchChar = { term };

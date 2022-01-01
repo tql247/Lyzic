@@ -19,7 +19,7 @@ namespace Lyzic.Controllers
             _environment = env;
         }
         
-
+        // Trả về danh sách thông báo
         public IActionResult Index()
         {
             var listNotification = NotificationRes.GetAll();
