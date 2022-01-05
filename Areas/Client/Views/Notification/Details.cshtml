@@ -1,4 +1,4 @@
-@model Lyzic.Models.Notification
+@model dynamic
 
 @{
     ViewData["Title"] = "Notification";
@@ -22,7 +22,7 @@
                 <div class="article">
                     <!-- article content -->
                     <div class="article__content">
-                        <img src="@Url.Content(@Model.NotificationImage)" alt="">
+                        <img src="@Url.Content(@Model.Notification.NotificationImage)" alt="">
 
                         <div class="article__meta">
                             <a href="#" class="article__category">Documentary</a>
@@ -30,12 +30,12 @@
                             <span class="article__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 09.03.2021, 16:37</span>
                         </div>
 
-                        <h1>@Html.DisplayFor(model => model.Title)</h1>
+                        <h1>@Model.Notification.Title</h1>
 
                         <div style="color: white">
                            @* @Html.DisplayFor(model => model.Content) *@
                            @{
-                               string[] ps = Model.Content.Split("<br>");
+                               string[] ps = Model.Notification.Content.Split("<br>");
 
                                foreach (var p in ps)
                                 {
@@ -58,10 +58,33 @@
                     <div class="comments">
                         <div class="comments__title">
                             <h4>Comments</h4>
-                            <span>5</span>
+                            <!-- Show comment count -->
+                            @if (Model.CommentList.Count > 0)
+                            {
+                                <span>@Model.CommentList.Count</span>
+                            }
                         </div>
 
-                        <ul class="comments__list">
+                        <!-- Create and load list comment -->
+                        <div class="comment__load">
+                            @if (Model.CommentList.Count > 0)
+                            {
+                                <ul class="comments__list">
+                                @foreach (var item in Model.CommentList) {
+                                    <li class="comments__item">
+                                        <div class="comments__autor">
+                                            <img class="comments__avatar" src="~/img/avatar.svg" alt="">
+                                            <span class="comments__name">@item.UserName</span>
+                                            <span class="comments__time">30.08.2021, 17:53</span>
+                                        </div>
+                                        <p class="comments__text">@item.Content</p>
+                                    </li>
+                                }
+                                </ul>
+                            }
+                        </div>
+
+                        @* <ul class="comments__list">
                             <li class="comments__item">
                                 <div class="comments__autor">
                                     <img class="comments__avatar" src="~/img/avatar.svg" alt="">
@@ -156,13 +179,14 @@
                                     <button type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.3,10.75A1,1,0,1,0,9,9.25,3,3,0,1,1,7,4,3,3,0,0,1,9.23,5H8A1,1,0,0,0,8,7h3a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0h0a5,5,0,1,0,.3,7.75ZM19,6H15a1,1,0,0,0,0,2h4a1,1,0,0,1,1,1v9.72l-1.57-1.45a1,1,0,0,0-.68-.27H9a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v1a3,3,0,0,0,3,3h8.36l3,2.73A1,1,0,0,0,21,22a1.1,1.1,0,0,0,.4-.08A1,1,0,0,0,22,21V9A3,3,0,0,0,19,6Z"/></svg><span>Quote</span></button>
                                 </div>
                             </li>
-                        </ul>
+                        </ul> *@
 
-                        <form action="#" class="comments__form">
+                        <form id="commentNotifyForm" action="#" class="comments__form">
                             <div class="sign__group">
-                                <textarea id="text" name="text" class="sign__textarea" placeholder="Add comment"></textarea>
+                                <input type="hidden" id="idNotification" name="idNotification" value="@Model.Notification.ID">
+                                <textarea id="commentContent" name="commentContent" class="sign__textarea" placeholder="Add comment"></textarea>
                             </div>
-                            <button type="button" class="sign__btn">Send</button>
+                            <button type="submit" class="sign__btn">Send</button>
                         </form>
                     </div>
                     <!-- end comments -->
@@ -171,4 +195,5 @@
         </div>
     </div>
 </main>
+<script src="~/js/comment_notify.js"></script>
 <!-- end main content -->

@@ -64,5 +64,40 @@ namespace Lyzic.Controllers
 
             return msg;
         }
+
+        public string InsertCommentNotification(int idNotification, string content)
+        {
+            // Lấy thông tin user từ bình luận
+            var userID = 6;
+            var JWToken = HttpContext.Session.GetString("JWToken");
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+
+            if (identity != null)
+            {
+                try
+                {
+                    userID = Int32.Parse(identity.FindFirst("AccountID").Value);
+                }
+                catch (System.Exception)
+                {
+
+                }
+            }
+
+            object[] searchChar = {
+                userID,
+                idNotification,
+                content
+            };
+
+            var msg = "fail";
+
+            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
+            DataTable result = connection.Select("Comment_Insert_Notification ", searchChar);
+            if (connection.errorCode == 0 && connection.errorMessage == "")
+                msg = "success";
+
+            return msg;
+        }
     }
 }

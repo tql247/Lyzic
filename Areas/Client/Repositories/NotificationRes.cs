@@ -16,7 +16,7 @@ namespace Lyzic.Repositories
             object[] value = { };
             SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
             DataTable result = connection.Select("Notification_GetAll", value);
-            
+
             List<Notification> lstResult = new List<Notification>();
             if (connection.errorCode == 0 && result.Rows.Count > 0)
             {
@@ -37,7 +37,7 @@ namespace Lyzic.Repositories
 
             return lstResult;
         }
-        public static Notification Detail(int id)
+        public static (Notification, List<Comment>) Detail(int id)
         {
             object[] value =
             {
@@ -46,7 +46,9 @@ namespace Lyzic.Repositories
 
             SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
             DataTable result = connection.Select("Notification_Detail ", value);
+            DataTable commentsTable = connection.Select("Load_Comment_Notification ", value);
             Notification Notification = new Notification();
+            List<Comment> commentList = new List<Comment>();
 
             if (connection.errorCode == 0 && result.Rows.Count > 0)
             {
@@ -59,9 +61,36 @@ namespace Lyzic.Repositories
                 Notification.CreatedDate = string.IsNullOrEmpty(dr["CreatedDate"].ToString()) ? default : DateTime.Parse(dr["CreatedDate"].ToString());
             }
 
-            return Notification;
+            if (connection.errorCode == 0 && commentsTable.Rows.Count > 0)
+            {
+                foreach (DataRow dr in commentsTable.Rows)
+                {
+                    Comment comment = new Comment();
+                    object[] accountID =
+                    {
+                        dr["AccountID"].ToString()
+                    };
+
+                    DataTable getUserName = connection.Select("Account_Detail", accountID);
+                    if (connection.errorCode == 0 && getUserName.Rows.Count > 0)
+                    {
+                        var user = getUserName.Rows[0];
+                        comment.UserName = user["UserName"].ToString();
+                    }
+                    else
+                    {
+                        comment.UserName = "Incognito";
+                    }
+
+                    comment.Content = dr["Content"].ToString();
+
+                    commentList.Add(comment);
+                }
+            }
+
+            return (Notification, commentList);
         }
 
-        
+
     }
 }
