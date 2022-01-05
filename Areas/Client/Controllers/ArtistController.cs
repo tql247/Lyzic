@@ -12,6 +12,7 @@ using System.Data;
 using Lyzic.Const;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Dynamic;
 
 namespace Lyzic.Controllers
 {
@@ -36,8 +37,13 @@ namespace Lyzic.Controllers
         // Xem chi tiết nghệ sĩ
         public ActionResult Details(int id)
         {
-            var music = ArtistRes.Detail(id);
-            return View(music);
+            var artist = ArtistRes.Detail(id);
+            
+            dynamic multipleModel = new ExpandoObject();
+            multipleModel.Artist = artist;
+            multipleModel.Musics = MusicRes.GetMusicByArtist(artist.Name);
+ 
+            return View(multipleModel);
         }
     }
 }

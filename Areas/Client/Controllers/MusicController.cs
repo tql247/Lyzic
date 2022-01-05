@@ -35,6 +35,7 @@ namespace Lyzic.Controllers
 
             dynamic multipleModel = new ExpandoObject();
             multipleModel.Music = music;
+            multipleModel.Relates = MusicRes.GetMusicByArtist(music.Singers);
             multipleModel.CommentList = commentList.ToList();
 
             // Return multiple model(Music, List<Comment>) to view

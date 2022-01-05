@@ -78,5 +78,11 @@ namespace Lyzic.Controllers
 
             return JSONString;
         }
+
+        // Tìm kiếm ca nhạc
+        // public IActionResult SearchMusicByArtist(string name)
+        // {
+        //     return SearchRes.SearchMusicByArtist(name);
+        // }
     }
 }
