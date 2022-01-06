@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 using Lyzic.Repositories;
+using System.Dynamic;
 
 
 namespace Lyzic.Controllers
@@ -26,22 +27,16 @@ namespace Lyzic.Controllers
         // Trả về trang chủ
         public IActionResult Index()
         {
-            var JWToken = HttpContext.Session.GetString("JWToken");
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var listMusic = MusicRes.GetAll();
+            var listArtist = ArtistRes.GetAll();
+            var listNotification = NotificationRes.GetAll();
+            
+            dynamic multipleModel = new ExpandoObject();
+            multipleModel.Musics = listMusic.GetRange(0, Math.Min (listMusic.Count, 10));
+            multipleModel.Notifications = listNotification.GetRange(0, Math.Min (listNotification.Count, 3));
+            multipleModel.Artists = listArtist.GetRange(0, Math.Min (listArtist.Count, 6));
 
-            try
-            {
-                if (identity != null)
-                {
-                    var account = AccountRes.Profile(1);
-                    return View(account);
-                }
-                return View();
-            }
-            catch (System.Exception)
-            {
-                return View();
-            }
+            return View(multipleModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
