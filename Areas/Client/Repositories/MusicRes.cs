@@ -28,6 +28,7 @@ namespace Lyzic.Repositories
                     music.Name = dr["Name"].ToString();
                     music.Author = dr["Author"].ToString();
                     music.Singers = dr["Singers"].ToString();
+                    music.SingersID = string.IsNullOrEmpty(dr["SingerID"].ToString()) ? 0 : int.Parse(dr["SingerID"].ToString());
                     music.MediaImageCoverURI = dr["MediaImageCoverURI"].ToString();
                     music.MediaContentURI = dr["MediaContentURI"].ToString();
                     music.CreatedDate = string.IsNullOrEmpty(dr["CreatedDate"].ToString()) ? default : DateTime.Parse(dr["CreatedDate"].ToString());

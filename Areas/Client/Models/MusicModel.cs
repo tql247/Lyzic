@@ -21,6 +21,7 @@ namespace Lyzic.Models
         public string Author {get; set; }
 
         public string Singers {get; set; }
+        public int SingersID {get; set; }
 
         public string Lyric {get; set; }
 

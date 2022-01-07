@@ -102,8 +102,10 @@ namespace Lyzic.Repositories
 
             SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
             DataTable result = connection.Select("Music_Delete ", value);
-            if (connection.errorCode == 0 && connection.errorMessage == "")
+            if (connection.errorCode == 0 && connection.errorMessage == "") {
                 return true;
+            }
+            Console.WriteLine(connection.errorMessage);
             return false;
         }
     }

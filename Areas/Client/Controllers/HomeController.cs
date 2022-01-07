@@ -32,7 +32,7 @@ namespace Lyzic.Controllers
             var listNotification = NotificationRes.GetAll();
             
             dynamic multipleModel = new ExpandoObject();
-            multipleModel.Musics = listMusic.GetRange(0, Math.Min (listMusic.Count, 10));
+            multipleModel.Musics = listMusic.GetRange(0, Math.Min (listMusic.Count, 12));
             multipleModel.Notifications = listNotification.GetRange(0, Math.Min (listNotification.Count, 3));
             multipleModel.Artists = listArtist.GetRange(0, Math.Min (listArtist.Count, 6));
 

@@ -60,7 +60,7 @@
                             </span>
                         </div>
                         <div class="album__title">
-                            <h3><a href="release.html">@item.Name</a></h3>
+                            <h3><a asp-controller="Music" asp-action="Details" asp-route-id="@item.ID">@item.Name</a></h3>
                             <span><a href="artist.html">@item.Singers</a></span>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                     <div class="main__carousel main__carousel--artists owl-carousel" id="artists">
                         
                         @foreach (var item in Model.Artists) {
-                            <a asp-action="Details" asp-route-id="@item.ID" class="artist">
+                            <a asp-controller="Artist" asp-action="Details" asp-route-id="@item.ID" class="artist">
                                 <div class="artist__cover">
                                     <img src="@Url.Content(item.AvatarImageURI)" alt="">
                                 </div>
