@@ -35,7 +35,7 @@
                         <div style="color: white">
                            @* @Html.DisplayFor(model => model.Content) *@
                            @{
-                               string[] ps = Model.Notification.Content.Split("<br>");
+                               string[] ps = Model.Notification.Content.Split("\n");
 
                                foreach (var p in ps)
                                 {

@@ -37,6 +37,7 @@ namespace Lyzic.Controllers
             multipleModel.Music = music;
             multipleModel.Relates = MusicRes.GetMusicByArtist(music.Singers);
             multipleModel.CommentList = commentList.ToList();
+            multipleModel.Recommend = MusicRes.Recommend();
 
             // Return multiple model(Music, List<Comment>) to view
             return View(multipleModel);

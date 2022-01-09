@@ -68,6 +68,37 @@ namespace Lyzic.Repositories
             return lstResult;
         }
 
+        public static List<Music> Recommend()
+        {
+            object[] value = {  };
+            SQLCommand connection = new SQLCommand(ConstValue.ConnectionString);
+            DataTable result = connection.Select("Music_Recommend", value);
+
+            List<Music> lstResult = new List<Music>();
+            if (connection.errorCode == 0 && result.Rows.Count > 0)
+            {
+                foreach (DataRow dr in result.Rows)
+                {
+                    Music music = new Music();
+
+                    music.ID = string.IsNullOrEmpty(dr["ID"].ToString()) ? 0 : int.Parse(dr["ID"].ToString());
+                    music.Name = dr["Name"].ToString();
+                    music.Author = dr["Author"].ToString();
+                    music.Singers = dr["Singers"].ToString();
+                    music.MediaImageCoverURI = dr["MediaImageCoverURI"].ToString();
+                    music.MediaContentURI = dr["MediaContentURI"].ToString();
+                    music.CreatedDate = string.IsNullOrEmpty(dr["CreatedDate"].ToString()) ? default : DateTime.Parse(dr["CreatedDate"].ToString());
+
+                    lstResult.Add(music);
+                }
+            }
+
+            Console.WriteLine(lstResult.Count);
+            Console.WriteLine(lstResult);
+
+            return lstResult;
+        }
+
         public static (Music, List<Comment>) Detail(int id)
         {
             object[] value =
